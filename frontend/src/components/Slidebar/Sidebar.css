@@ -1,0 +1,51 @@
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    transition: width 0.3s ease;
+}
+
+#sidebar.active {
+    width: 250px;
+}
+
+/* Button toggle */
+.btn-toggle {
+    position: absolute;
+    top: 10px;
+    right: -15px;
+    z-index: 101;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Nav links */
+.nav-link {
+    color: #fff;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-top: 50px; /* Adjust this value as needed */
+    }
+}

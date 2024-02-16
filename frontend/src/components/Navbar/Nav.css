@@ -1,0 +1,4 @@
+.navbar-bg {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+}

@@ -1,0 +1,205 @@
+15/02/2024 16:02:21 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:02:39 [INFO]: Anish has logged in
+15/02/2024 16:03:12 [INFO]: User updated successfully
+15/02/2024 16:03:28 [INFO]: Received DELETE request for user ID:
+15/02/2024 16:03:28 [INFO]: User deleted successfully
+15/02/2024 16:04:13 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:04:25 [INFO]: Received DELETE request for user ID:65cc490ab637df5c86b4e885
+15/02/2024 16:04:25 [INFO]: User deleted successfully
+15/02/2024 16:05:59 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:06:11 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:06:15 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:06:49 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:06:51 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:06:59 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:07:06 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:07:25 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:07:45 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:07:56 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:06 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:10 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:12 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:22 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:31 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:35 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:38 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:42 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:45 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:49 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:53 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:55 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:08:59 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:09:06 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:09:16 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:09:31 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:09:47 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:09:51 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:09:59 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:10:02 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:10:05 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:10:11 [INFO]: HTTP Server listening on port 5000
+15/02/2024 16:35:00 [INFO]: Ajith has logged in
+15/02/2024 16:35:22 [INFO]: User updated successfullyAjith
+15/02/2024 16:35:40 [INFO]: Ajith has logged in
+15/02/2024 16:37:35 [INFO]: Received DELETE request for user ID:65cdefbb04c916ec89dfef78
+15/02/2024 16:37:35 [INFO]: User deleted successfully65cdefbb04c916ec89dfef78
+15/02/2024 16:40:46 [INFO]: Received DELETE request for user ID:65cdf0a404c916ec89dfef79
+15/02/2024 16:40:46 [INFO]: User deleted successfully65cdf0a404c916ec89dfef79
+15/02/2024 16:43:00 [INFO]: Received DELETE request for user ID:65cdf19304c916ec89dfef7c
+15/02/2024 16:43:00 [INFO]: User deleted successfully65cdf19304c916ec89dfef7c
+15/02/2024 16:44:31 [INFO]: Received DELETE request for user ID:65cdf1fe04c916ec89dfef7e
+15/02/2024 16:44:31 [INFO]: User deleted successfully65cdf1fe04c916ec89dfef7e
+15/02/2024 16:45:55 [INFO]: User updated successfullyfytfyt
+15/02/2024 16:46:16 [INFO]: User updated successfullyfytfyt
+15/02/2024 16:46:28 [INFO]: Received DELETE request for user ID:65cdf1d204c916ec89dfef7d
+15/02/2024 16:46:28 [INFO]: User deleted successfully65cdf1d204c916ec89dfef7d
+15/02/2024 16:46:31 [INFO]: Received DELETE request for user ID:65cdf16c04c916ec89dfef7b
+15/02/2024 16:46:31 [INFO]: User deleted successfully65cdf16c04c916ec89dfef7b
+15/02/2024 16:46:38 [INFO]: Received DELETE request for user ID:65cdf14f04c916ec89dfef7a
+15/02/2024 16:46:38 [INFO]: User deleted successfully65cdf14f04c916ec89dfef7a
+15/02/2024 17:03:46 [INFO]: Updated User Role with ID 65cdf67304c916ec89dfef81
+15/02/2024 17:04:14 [INFO]: Updated User Role with ID 65cdf67304c916ec89dfef81
+15/02/2024 17:04:23 [INFO]: Received DELETE request for Use5rRole ID :65cdf67304c916ec89dfef81
+15/02/2024 17:04:23 [INFO]: Deleted User Role with ID 65cdf67304c916ec89dfef81
+15/02/2024 17:04:26 [INFO]: Received DELETE request for Use5rRole ID :65cdf59804c916ec89dfef80
+15/02/2024 17:04:26 [INFO]: Deleted User Role with ID 65cdf59804c916ec89dfef80
+15/02/2024 17:04:29 [INFO]: Received DELETE request for Use5rRole ID :65cdf56b04c916ec89dfef7f
+15/02/2024 17:04:29 [INFO]: Deleted User Role with ID 65cdf56b04c916ec89dfef7f
+15/02/2024 17:12:20 [INFO]: Charger updated successfully
+15/02/2024 17:13:18 [INFO]: Charger updated successfully
+15/02/2024 17:13:24 [INFO]: Received DELETE request for charger ID:65cdf88e04c916ec89dfef83
+15/02/2024 17:13:24 [INFO]: Charger deleted successfully65cdf88e04c916ec89dfef83
+15/02/2024 17:13:27 [INFO]: Received DELETE request for charger ID:65cdf82c04c916ec89dfef82
+15/02/2024 17:13:28 [INFO]: Charger deleted successfully65cdf82c04c916ec89dfef82
+15/02/2024 17:14:28 [INFO]: New user have been registered successfully
+15/02/2024 17:14:38 [INFO]: Ajith has logged in
+15/02/2024 17:14:57 [INFO]: Anish has logged in
+15/02/2024 17:23:53 [INFO]: Received DELETE request for user ID:65cdf91c04c916ec89dfef84
+15/02/2024 17:23:53 [INFO]: User deleted successfully65cdf91c04c916ec89dfef84
+16/02/2024 10:00:09 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:04:57 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:05:22 [INFO]: Anish has logged in
+16/02/2024 10:46:07 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:17 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:24 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:35 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:38 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:41 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:45 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:53 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:46:59 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:47:06 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:47:20 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:47:41 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:47:55 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:48:04 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:48:12 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:48:23 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:48:28 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:48:37 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:49:12 [INFO]: HTTP Server listening on port 5000
+16/02/2024 10:49:22 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:14:12 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:14:27 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:14:33 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:14:58 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:15:06 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:15:28 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:15:35 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:16:17 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:16:31 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:17:01 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:17:09 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:17:11 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:17:33 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:17:42 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:17:50 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:17:59 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:18:01 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:18:04 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:18:25 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:18:33 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:18:41 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:19:06 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:19:13 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:19:16 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:19:36 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:19:41 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:19:57 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:20:12 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:22:01 [ERROR]: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+16/02/2024 11:23:09 [ERROR]: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+16/02/2024 11:24:12 [INFO]: HTTP Server listening on port 5000
+16/02/2024 11:24:20 [ERROR]: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+16/02/2024 11:25:10 [ERROR]: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+16/02/2024 11:31:56 [ERROR]: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+16/02/2024 11:32:16 [ERROR]: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+16/02/2024 11:33:15 [INFO]: Updated User Role with ID 65cefa95dd521cae3c5bf2d8
+16/02/2024 11:33:33 [INFO]: Received DELETE request for Use5rRole ID :65cefa95dd521cae3c5bf2d8
+16/02/2024 11:33:33 [INFO]: Deleted User Role with ID 65cefa95dd521cae3c5bf2d8
+16/02/2024 12:12:58 [ERROR]: Use5rRoleID is not defined
+16/02/2024 12:14:06 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:14:14 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:14:16 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:14:30 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:14:34 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:14:42 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:14:48 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:15:53 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:16:01 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:16:15 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:16:25 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:16:27 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:32:05 [INFO]: Updated Price with ID 65abb2bc13ce4d3f9d9cc15e
+16/02/2024 12:37:45 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:37:53 [ERROR]: UnitPrice is not defined
+16/02/2024 12:38:24 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:38:32 [INFO]: Updated Price with ID 65abb2bc13ce4d3f9d9cc15e
+16/02/2024 12:41:02 [INFO]: HTTP Server listening on port 5000
+16/02/2024 12:41:33 [INFO]: Updated Price with ID 65abb2bc13ce4d3f9d9cc15e
+16/02/2024 12:42:03 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:01:33 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:01:39 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:01:42 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:01:44 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:01:53 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:01:57 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:02:01 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:02:11 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:02:21 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:02:34 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:02:45 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:02:54 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:02:59 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:03:12 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:03:16 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:03:32 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:03:46 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:03:57 [INFO]: HTTP Server listening on port 5000
+16/02/2024 13:04:00 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:20:27 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:20:31 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:20:49 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:22:28 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:22:35 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:22:38 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:22:39 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:22:53 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:22:55 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:23:18 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:23:19 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:28:49 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:28:52 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:28:57 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:36:10 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:36:17 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:37:24 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:37:31 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:37:45 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:43:55 [INFO]: Updated Price with ID 65abb2bc13ce4d3f9d9cc15e
+16/02/2024 14:48:00 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:48:06 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:48:15 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:53:41 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:53:49 [INFO]: HTTP Server listening on port 5000
+16/02/2024 14:58:38 [INFO]: HTTP Server listening on port 5000
