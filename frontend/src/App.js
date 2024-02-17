@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable strict */
 /* eslint-disable no-lone-blocks */
 import React, { useState, useEffect  } from 'react';
 // import axios from 'axios';
@@ -34,9 +36,9 @@ import UpdatePrice from './page/Admin/ManagePrice/UpdatePrice'
 
 
 /* User side route */
-import Wallet from './page/Wallet/Wallet';
-import PaymentSuccess from './page/Wallet/PaymentSuccess';
-import ChargingSession from "./page/Charging/ChargingSession";
+import Wallet from './page/User/Wallet/Wallet';
+import PaymentSuccess from './page/User/Wallet/PaymentSuccess';
+import ChargingSession from "./page/User/Charging/ChargingSession";
 import UserDashboard from "./page/User/UserDashboard ";
 
 import jQuery from 'jquery';

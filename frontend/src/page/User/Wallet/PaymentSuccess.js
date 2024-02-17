@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../App.css';
 import { useHistory } from 'react-router-dom';
 
 const PaymentSuccess = () => {
