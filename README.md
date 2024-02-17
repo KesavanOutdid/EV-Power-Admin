@@ -51,7 +51,7 @@ To get started with the EV Charger Application, follow the steps below:
     cd frontend
     npm run custom-install
     cd backend
-    npm install
+    npm install  //if node_modules does not present in the backend directry
 
 3. Run the application:
       ```bash
