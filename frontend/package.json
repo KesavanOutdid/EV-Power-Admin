@@ -52,7 +52,7 @@
 "scripts": {
   "start": "set PORT=4244 && react-scripts start",
   "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
-  "custom-install": "npm install --legacy-peer-deps",
+  "custom-install": "npm install --legacy-peer-deps"
 },
   "resolutions": {
     "nth-check": "2.0.1"
