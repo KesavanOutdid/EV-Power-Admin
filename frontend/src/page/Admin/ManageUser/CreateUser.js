@@ -34,7 +34,7 @@ const CreateUser = ({ userInfo, handleLogout, children }) => {
         }
         
         // Send request to backend to create user
-        const response = await axios.post('http://192.168.1.12:5000/ManageUser/createUser', newUser);
+        const response = await axios.post('ManageUser/createUser', newUser);
         
         if (response.status === 201) {
             // User created successfully

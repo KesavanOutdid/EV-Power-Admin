@@ -15,7 +15,7 @@ const UserRole = ({userInfo, handleLogout,children  }) => {
 
   const fetchRoles = async () => {
     try {
-      const response = await axios.get('http://192.168.1.12:5000/ManageUserRoles');
+      const response = await axios.get('ManageUserRoles');
       setRoles(response.data.roles);
     } catch (error) {
       console.error('Error fetching user roles:', error);
@@ -41,7 +41,7 @@ const UserRole = ({userInfo, handleLogout,children  }) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-            await axios.delete(`http://192.168.1.12:5000/ManageUserRoles/deleteuserRoles/${roleID}`);
+            await axios.delete(`ManageUserRoles/deleteuserRoles/${roleID}`);
             fetchRoles();
                 swalWithBootstrapButtons.fire({
                     title: "Deleted!",

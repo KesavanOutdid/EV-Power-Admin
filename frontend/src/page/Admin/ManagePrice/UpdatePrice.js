@@ -43,7 +43,7 @@ const UpdatePrice = ({ userInfo, handleLogout, children }) => {
         if (validateForm()) {
             console.log("updating Price:", UpdatePricing);
             await axios.put(
-            `http://192.168.1.12:5000/ManagePrice/UpdatePrice/${UpdatePricing._id}`,
+            `ManagePrice/UpdatePrice/${UpdatePricing._id}`,
             UpdatePricing
             );
             Swal.fire({

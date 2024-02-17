@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 const Login = ({ handleLogin }) => {
     const [username, setUsername] = useState("");
-    const [phone, setPhone] = useState("");
+    const [phone] = useState("");
     const [password, setPassword] = useState(['', '', '', '']);
     const passwordRefs = useRef([]);
 
@@ -45,7 +45,7 @@ const Login = ({ handleLogin }) => {
         e.preventDefault();
         try {
             const enteredPassword = password.join('');
-            const response = await axios.post('http://192.168.1.12:5000/login', { username, phone, password: enteredPassword });
+            const response = await axios.post('/login', { username, phone, password: enteredPassword });
             console.log("username: "+response.data.username);
             handleLogin({ ...response.data });
         } catch (error) {

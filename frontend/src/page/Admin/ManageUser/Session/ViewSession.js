@@ -15,7 +15,7 @@ const ViewSession = ({ userInfo, handleLogout, children }) => {
 
     const fetchChargersSession = async () => {
         try {
-        const response = await axios.get(`http://192.168.1.12:5000/ManageUser/ViewSession/${username}`);
+        const response = await axios.get(`ManageUser/ViewSession/${username}`);
         setChargers(response.data.chargers);
         console.log('Charge Session Data : ', chargers)
 

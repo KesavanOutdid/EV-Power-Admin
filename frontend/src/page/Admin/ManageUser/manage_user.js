@@ -10,7 +10,7 @@ const ManageUser = ({userInfo, handleLogout,children  }) => {
     const history = useHistory();
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://192.168.1.12:5000/ManageUser');
+            const response = await axios.get('ManageUser');
             console.log(response.data)
             setUsers(response.data.users);
         } catch (error) {
@@ -42,7 +42,7 @@ const ManageUser = ({userInfo, handleLogout,children  }) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`http://192.168.1.12:5000/ManageUser/deleteUser/${userId}`);
+                    await axios.delete(`ManageUser/deleteUser/${userId}`);
                     fetchUsers();
                     swalWithBootstrapButtons.fire({
                         title: "Deleted!",

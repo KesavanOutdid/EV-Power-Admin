@@ -12,7 +12,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
 
     const fetchChargers = async () => {
         try {
-            const response = await axios.get('http://192.168.1.12:5000/ManageCharger');
+            const response = await axios.get('ManageCharger');
             setChargers(response.data.chargers);
 
         } catch (error) {
@@ -44,7 +44,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`http://192.168.1.12:5000/ManageCharger/deleteCharger/${chargerId}`);
+                    await axios.delete(`ManageCharger/deleteCharger/${chargerId}`);
                     fetchChargers();
                     swalWithBootstrapButtons.fire({
                         title: "Deleted!",

@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from '../../../components/Slidebar/Sidebar';
 import NavComponent from '../../../components/Navbar/Nav';
-import Swal from 'sweetalert2';
 
 const TotalRevenue = ({userInfo, handleLogout,children  }) => {
     const [TotalRevenue, setTotalRevenue] = useState('');
     const [Revenue, setRevenue] = useState([]);
     const fetchTotalRevenue = async () => {
         try {
-            const response = await axios.get('http://192.168.1.12:5000/ManageTotalRevenue');
+            const response = await axios.get('ManageTotalRevenue');
             console.log("response", response)
             const { TotalRevenue, Revenue } = response.data;
             setRevenue(Revenue);

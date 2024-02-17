@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const UserDashboard = ({ userInfo,  handleLogout}) => {
 
@@ -21,14 +20,6 @@ const UserDashboard = ({ userInfo,  handleLogout}) => {
             </div>
         </div>
         <hr className="my-4" />
-        <div className="mb-3">
-            <Link to="/wallet" className="btn btn-primary me-3 mb-3">
-            Go to Wallet
-            </Link>
-            <Link to="/ChargingSession" className="btn btn-success mb-3">
-            Start Charging Session
-            </Link>
-        </div>
         </main>
     </div>
     );

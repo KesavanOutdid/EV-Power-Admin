@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from '../../../components/Slidebar/Sidebar';
 import NavComponent from '../../../components/Navbar/Nav';
-import Swal from 'sweetalert2';
 
 const ManagePrice = ({ userInfo, handleLogout, children }) => {
     const [Pricing, setPricing] = useState([]);
@@ -11,7 +10,7 @@ const ManagePrice = ({ userInfo, handleLogout, children }) => {
 
     const fetchPrice = async () => {
         try {
-            const response = await axios.get('http://192.168.1.12:5000/ManagePrice');
+            const response = await axios.get('ManagePrice');
             console.log(response.data)
             setPricing(response.data.Pricing);
         } catch (error) {

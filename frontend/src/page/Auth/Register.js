@@ -9,7 +9,7 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState(["", "", "", ""]);
-    const [message, setMessage] = useState("");
+    const [setMessage] = useState("");
     const history = useHistory();
     const passwordRefs = useRef([]);
 
@@ -61,7 +61,7 @@ const Register = () => {
                 return false;
             }
 
-            await axios.post("http://192.168.1.12:5000/register", {
+            await axios.post("register", {
                 username,
                 phone,
                 password: password.join(""),

@@ -11,14 +11,7 @@
     "not safari <= 16.5"
   ],
   "hints": {
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "-webkit-filter",
-          "-moz-appearance"
-        ]
-      }
-    ]
+    "compat-api/css": "off",
+    "css-prefix-order": "off"
   }
 }

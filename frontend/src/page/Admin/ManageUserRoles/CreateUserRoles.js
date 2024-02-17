@@ -36,7 +36,7 @@ const CreateUserRoles = ({userInfo, handleLogout,children }) => {
             // Validate the form
             if (validateForm()) {
                 console.log('Creating userRoles:', newRole);
-                await axios.post('http://192.168.1.12:5000/createUserRoles', newRole);
+                await axios.post('createUserRoles', newRole);
                 setNewRole({ roleID: '', roleName: '' });
                 Swal.fire({
                     position: "center",

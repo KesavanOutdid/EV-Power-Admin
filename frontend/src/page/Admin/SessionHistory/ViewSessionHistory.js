@@ -15,7 +15,7 @@ const ViewSessionHistory = ({ userInfo, handleLogout, children }) => {
 
     const fetchChargers = async () => {
         try {
-        const response = await axios.get(`http://192.168.1.12:5000/ManageSessionHistory/ViewSessionHistory/${chargerID}`);
+        const response = await axios.get(`ManageSessionHistory/ViewSessionHistory/${chargerID}`);
         setChargers(response.data.chargers);
 
         } catch (error) {

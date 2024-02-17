@@ -68,7 +68,7 @@ const CreateUser = ({userInfo, handleLogout,children }) => {
             // Validate the form
             if (validateForm()) {
                 console.log('Creating Charger:', newChargerData);
-                await axios.post('http://192.168.1.12:5000/ChargerList/chargers', newChargerData);
+                await axios.post('ChargerList/chargers', newChargerData);
                 setNewCharger({
                     ChargerID: '',
                     transactionId: '',

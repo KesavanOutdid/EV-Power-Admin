@@ -36,9 +36,6 @@ import UpdatePrice from './page/Admin/ManagePrice/UpdatePrice'
 
 
 /* User side route */
-import Wallet from './page/User/Wallet/Wallet';
-import PaymentSuccess from './page/User/Wallet/PaymentSuccess';
-import ChargingSession from "./page/User/Charging/ChargingSession";
 import UserDashboard from "./page/User/UserDashboard ";
 
 import jQuery from 'jquery';
@@ -414,41 +411,6 @@ const App = () => {
             <UserDashboard userInfo={userInfo} handleLogout={handleLogout} setInitialLoad={setInitialLoad} />
           ) : (
             <UserDashboard userInfo={userInfo} handleLogout={handleLogout} />
-          )
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
-
-        {/* User side route */}
-        <Route path="/wallet">
-        {loggedIn ? (
-          initialLoad ? (
-            <Wallet userInfo={userInfo} handleLogout={handleLogout} setInitialLoad={setInitialLoad} />
-          ) : (
-            <Wallet userInfo={userInfo} handleLogout={handleLogout} />
-          )
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
-        <Route path="/PaymentSuccess"  >
-        {loggedIn ? (
-          initialLoad ? (
-            <PaymentSuccess userInfo={userInfo} handleLogout={handleLogout} setInitialLoad={setInitialLoad} />
-          ) : (
-            <PaymentSuccess userInfo={userInfo} handleLogout={handleLogout} />
-          )
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
-        <Route path="/ChargingSession" >
-        {loggedIn ? (
-          initialLoad ? (
-            <ChargingSession userInfo={userInfo} handleLogout={handleLogout} setInitialLoad={setInitialLoad} />
-          ) : (
-            <ChargingSession userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
           <Redirect to="/login" />

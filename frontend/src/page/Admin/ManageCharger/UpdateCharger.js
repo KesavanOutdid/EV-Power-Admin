@@ -35,7 +35,7 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
     
     const handleEditCharger = async () => {
         try {
-            await axios.put(`http://192.168.1.12:5000/ManageCharger/updateCharger/${editingCharger._id}`, editingCharger);
+            await axios.put(`ManageCharger/updateCharger/${editingCharger._id}`, editingCharger);
             Swal.fire({
                 position: "center",
                 icon: "success",
