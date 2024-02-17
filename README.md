@@ -50,7 +50,7 @@ To get started with the EV Charger Application, follow the steps below:
       ```bash
     cd Frontent
     npm custom-install   
-    cd ../server
+    cd backend
     npm install
 
 3. Run the application:
