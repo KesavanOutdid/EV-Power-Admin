@@ -46,7 +46,7 @@ const UpdateUser = ({userInfo, handleLogout,children }) => {
             if (validateForm()) {
 
                 console.log('updating user user:', userData);
-                await axios.put(`ManageUser/updateUser/${userData._id}`, userData);
+                await axios.put(`/ManageUser/updateUser/${userData._id}`, userData);
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -78,7 +78,7 @@ const UpdateUser = ({userInfo, handleLogout,children }) => {
                 <main className="p-3 p-md-5 bg-light rounded position-relative">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                     <h3 className="card-title mt-5 "><b>Update User</b></h3>
-                    <button className="btn btn-info text-white mt-4"  onClick={() => history.goBack()} >Go Back</button>
+                    <button className="btn btn-info text-white mt-4 shadow"  onClick={() => history.goBack()} >Go Back</button>
                 </div>
                 <section className="CreateUser">
                 <form className="contact-form row">
@@ -132,7 +132,7 @@ const UpdateUser = ({userInfo, handleLogout,children }) => {
 
                         <div className="form-field col-lg-12 d-flex flex-column align-items-center">
                                 <div id="validationMessage" className="text-danger mb-2"></div>
-                                <button type="button" className="btn btn-primary"  onClick={handleUpdateUser}>Update User</button>
+                                <button type="button" className="btn btn-primary shadow"  onClick={handleUpdateUser}>Update User</button>
                             </div>
                     </form>
                 </section>

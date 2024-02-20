@@ -35,7 +35,7 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
     
     const handleEditCharger = async () => {
         try {
-            await axios.put(`ManageCharger/updateCharger/${editingCharger._id}`, editingCharger);
+            await axios.put(`/ManageCharger/updateCharger/${editingCharger._id}`, editingCharger);
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -65,7 +65,7 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
                     <main className="p-3 p-md-5 bg-light rounded position-relative">
                     <div className="d-flex justify-content-between align-items-center mb-4">
                         <h3 className="card-title mt-5 "><b>Update Device</b></h3>
-                        <button className="btn btn-info text-white mt-4"  onClick={() => history.goBack()} >Go Back</button>
+                        <button className="btn shadow btn-info text-white mt-4"  onClick={() => history.goBack()} >Go Back</button>
                     </div>
                     <section className="CreateUser">
                         <form className="contact-form row">
@@ -171,7 +171,7 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
                             </div>
                             <div className="form-field col-lg-12 d-flex flex-column align-items-center">
                                 <div id="validationMessage" className="text-danger mb-2"></div>
-                                <button type="button" className="btn btn-primary" onClick={handleEditCharger}>Update Device</button>
+                                <button type="button" className="btn btn-primary shadow" onClick={handleEditCharger}>Update Device</button>
                             </div>
                         </form>
                     </section>

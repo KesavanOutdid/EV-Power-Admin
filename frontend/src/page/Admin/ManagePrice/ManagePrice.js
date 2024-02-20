@@ -10,7 +10,7 @@ const ManagePrice = ({ userInfo, handleLogout, children }) => {
 
     const fetchPrice = async () => {
         try {
-            const response = await axios.get('ManagePrice');
+            const response = await axios.get('/ManagePrice');
             console.log(response.data)
             setPricing(response.data.Pricing);
         } catch (error) {
@@ -52,7 +52,7 @@ const ManagePrice = ({ userInfo, handleLogout, children }) => {
                                     </h3>
                                 </div>
                                 <div className="card mt-4">
-                                    <div className="card-body">
+                                    <div className="card-body shadow">
                                         <p className="card-description">
                                             <code>Price Information</code>
                                         </p>

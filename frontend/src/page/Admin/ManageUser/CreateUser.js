@@ -34,7 +34,7 @@ const CreateUser = ({ userInfo, handleLogout, children }) => {
         }
         
         // Send request to backend to create user
-        const response = await axios.post('ManageUser/createUser', newUser);
+        const response = await axios.post('/ManageUser/createUser', newUser);
         
         if (response.status === 201) {
             // User created successfully
@@ -71,7 +71,7 @@ const CreateUser = ({ userInfo, handleLogout, children }) => {
                 <main className="p-3 p-md-5 bg-light rounded position-relative">
                     <div className="d-flex justify-content-between align-items-center mb-4">
                     <h3 className="card-title mt-5 "><b>Create User</b></h3>
-                    <button className="btn btn-info text-white mt-4" onClick={() => history.goBack()}>Go Back</button>
+                    <button className="btn btn-info shadow text-white mt-4" onClick={() => history.goBack()}>Go Back</button>
                     </div>
                     <section className="CreateUser">
                     <form className="contact-form row">
@@ -125,7 +125,7 @@ const CreateUser = ({ userInfo, handleLogout, children }) => {
                         {/* Validation Message and Create User Button */}
                         <div className="form-field col-lg-12 d-flex flex-column align-items-center">
                         <div id="validationMessage" className="text-danger mb-2"></div>
-                        <button type="button" className="btn btn-primary" onClick={handleCreateUser}>Create User</button>
+                        <button type="button" className="btn btn-primary shadow" onClick={handleCreateUser}>Create User</button>
                         </div>
                     </form>
                     </section>

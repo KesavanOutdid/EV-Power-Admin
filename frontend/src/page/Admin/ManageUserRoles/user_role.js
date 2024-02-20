@@ -15,7 +15,7 @@ const UserRole = ({userInfo, handleLogout,children  }) => {
 
   const fetchRoles = async () => {
     try {
-      const response = await axios.get('ManageUserRoles');
+      const response = await axios.get('/ManageUserRoles');
       setRoles(response.data.roles);
     } catch (error) {
       console.error('Error fetching user roles:', error);
@@ -41,7 +41,7 @@ const UserRole = ({userInfo, handleLogout,children  }) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-            await axios.delete(`ManageUserRoles/deleteuserRoles/${roleID}`);
+            await axios.delete(`/ManageUserRoles/deleteuserRoles/${roleID}`);
             fetchRoles();
                 swalWithBootstrapButtons.fire({
                     title: "Deleted!",
@@ -89,10 +89,10 @@ return (
                 <main className="p-3 p-md-5  rounded position-relative">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                     <h3 className="card-title mt-5 ml-3"><b>Manage UserRoles</b></h3>
-                    <button className="btn btn-primary mt-5" onClick={navigateToCreateUser}>Add Role</button>
+                    <button className="btn btn-primary  shadow mt-5" onClick={navigateToCreateUser}>Add Role</button>
                 </div>
                 <div className="card  ">
-                <div className="card-body ">
+                <div className="card-body shadow">
                     <p className="card-description">
                     <code>User Roles</code>
                     </p>

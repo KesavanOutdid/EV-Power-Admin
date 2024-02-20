@@ -43,10 +43,10 @@ const NavComponent = ({ userInfo, handleLogout }) => {
             <nav className="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                     <a className="navbar-brand brand-logo m-5 " href=""><img src={EV2} className="mr-2" alt="logo"/></a>
-                    <a className="navbar-brand brand-logo-mini ml-4" href=""><img src={EV} alt="logo"/></a>
+                    <a className="navbar-brand brand-logo-mini ml-2" href=""><img src={EV} alt="logo"/></a>
                 </div>
                 <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end ">
-                <button  className="navbar-toggler align-self-center mr-4" type="button"  data-toggle="minimize">
+                <button  className="navbar-toggler align-self-center mr-4 border-0 " type="button"  data-toggle="minimize">
                         <span className="icon-menu"></span>
                     </button>
                     <ul className="navbar-nav navbar-nav-right">
@@ -67,7 +67,7 @@ const NavComponent = ({ userInfo, handleLogout }) => {
                             </div>
                         </li>
                     </ul>
-                    <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center border-0 " type="button" data-toggle="offcanvas">
                         <span className="icon-menu"></span>
                     </button>
                 </div>

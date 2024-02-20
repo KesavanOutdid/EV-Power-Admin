@@ -43,7 +43,7 @@ const UpdatePrice = ({ userInfo, handleLogout, children }) => {
         if (validateForm()) {
             console.log("updating Price:", UpdatePricing);
             await axios.put(
-            `ManagePrice/UpdatePrice/${UpdatePricing._id}`,
+            `/ManagePrice/UpdatePrice/${UpdatePricing._id}`,
             UpdatePricing
             );
             Swal.fire({
@@ -79,7 +79,7 @@ const UpdatePrice = ({ userInfo, handleLogout, children }) => {
                         <b>Update Price</b>
                     </h3>
                     <button
-                        className="btn btn-info text-white mt-4"
+                        className="btn btn-info text-white mt-4 shadow"
                         onClick={() => history.goBack()}
                     >
                         Go Back
@@ -109,7 +109,7 @@ const UpdatePrice = ({ userInfo, handleLogout, children }) => {
                             <div id="validationMessage" className="text-danger mb-2"></div>
                             <button
                                 type="button"
-                                className="btn btn-primary"
+                                className="btn btn-primary shadow"
                                 onClick={handleEditRole}
                             >
                                 Update Price

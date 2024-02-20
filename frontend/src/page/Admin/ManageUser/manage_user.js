@@ -7,10 +7,11 @@ import Swal from 'sweetalert2';
 
 const ManageUser = ({userInfo, handleLogout,children  }) => {
     const [users, setUsers] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
     const history = useHistory();
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('ManageUser');
+            const response = await axios.get('/ManageUser');
             console.log(response.data)
             setUsers(response.data.users);
         } catch (error) {
@@ -42,7 +43,7 @@ const ManageUser = ({userInfo, handleLogout,children  }) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`ManageUser/deleteUser/${userId}`);
+                    await axios.delete(`/ManageUser/deleteUser/${userId}`);
                     fetchUsers();
                     swalWithBootstrapButtons.fire({
                         title: "Deleted!",
@@ -85,6 +86,16 @@ const ManageUser = ({userInfo, handleLogout,children  }) => {
         history.push(`/ViewWalletTransaction/${user.username}`);
     };
     
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const filteredUsers = users.filter((user) => {
+        const searchFields = ['username', 'phone', 'password', 'walletBalance', 'roleID'];
+        return searchFields.some((field) =>
+            user[field].toString().toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    });
 
 return (
     <div className="container-fluid bg-light">
@@ -102,12 +113,19 @@ return (
                 <main className="p-3 p-md-5  rounded position-relative">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                     <h3 className="card-title mt-5 ml-3"><b>Manage User</b></h3>
-                    <button className="btn btn-primary mt-5" onClick={navigateToCreateUser}>Add User</button>
+                    <button className="btn btn-primary shadow mt-5" onClick={navigateToCreateUser}>Add User</button>
                 </div>
                 <div className="card mt-4">
-                <div className="card-body">
-                    <p className="card-description">
+                <div className="card-body shadow">
+                <p className="card-description d-flex align-items-center">
                     <code>User Information</code>
+                    <input
+                            type="text"
+                            className="form-control col-lg-3 col-md-6 col-sm-12 ml-auto"
+                            placeholder="Search by username, phone, password, wallet balance, role ID..."
+                            value={searchQuery}
+                            onChange={handleSearch}
+                        />
                     </p>
                     <div className="table-responsive">
                     <table className="table table-striped">
@@ -125,9 +143,9 @@ return (
                         </tr>
                         </thead>
                         <tbody>
-                            {users.length > 0 ? (
-                                users.map((user, index) => (
-                                    <tr key={user._id} className='text-center'>
+                            {filteredUsers.length > 0 ? (
+                                filteredUsers.map((user, index) => (
+                                    <tr key={user._id} className="text-center">
                                         <td className="py-1">{index + 1}</td>
                                         <td className="py-1">{user.username}</td>
                                         <td className="py-1">{user.phone}</td>
@@ -137,22 +155,42 @@ return (
                                             {user.roleID === '1' ? 'User' : user.roleID === '2' ? 'Admin' : ''}
                                         </td>
                                         <td className="py-1">
-                                            {/* Session History  Buttons */}
+                                            {/* Session History Buttons */}
                                             <div className="btn-group" role="group">
-                                                <button className="btn btn-info me-2" onClick={() => navigateToViewSession(user)}>View</button>
+                                                <button
+                                                    className="btn btn-info me-2"
+                                                    onClick={() => navigateToViewSession(user)}
+                                                >
+                                                    View
+                                                </button>
                                             </div>
                                         </td>
                                         <td className="py-1">
                                             {/* Wallet Transaction Buttons */}
                                             <div className="btn-group" role="group">
-                                                <button className="btn btn-success me-2" onClick={() => navigateToViewWalletTransaction(user)}>View</button>
+                                                <button
+                                                    className="btn btn-success me-2"
+                                                    onClick={() => navigateToViewWalletTransaction(user)}
+                                                >
+                                                    View
+                                                </button>
                                             </div>
                                         </td>
                                         <td className="py-1">
                                             {/* Edit and Delete Buttons */}
                                             <div className="btn-group" role="group">
-                                                <button className="btn btn-warning me-2" onClick={() => navigateToEditUser(user)}>Edit</button>
-                                                <button className="btn btn-danger" onClick={() => handleDeleteUser(user._id)}>Delete</button>
+                                                <button
+                                                    className="btn btn-warning me-2"
+                                                    onClick={() => navigateToEditUser(user)}
+                                                >
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    className="btn btn-danger"
+                                                    onClick={() => handleDeleteUser(user._id)}
+                                                >
+                                                    Delete
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>

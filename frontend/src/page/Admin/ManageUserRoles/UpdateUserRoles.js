@@ -46,7 +46,7 @@ const UpdateUserRoles = ({ userInfo, handleLogout, children }) => {
         if (validateForm()) {
             console.log("updating userRoles:", editingRole);
             await axios.put(
-            `ManageUserRoles/UpdateuserRoles/${editingRole._id}`,
+            `/ManageUserRoles/UpdateuserRoles/${editingRole._id}`,
             editingRole
             );
             Swal.fire({
@@ -82,7 +82,7 @@ const UpdateUserRoles = ({ userInfo, handleLogout, children }) => {
                         <b>Update UserRole</b>
                     </h3>
                     <button
-                        className="btn btn-info text-white mt-4"
+                        className="btn btn-info text-white mt-4 shadow"
                         onClick={() => history.goBack()}
                     >
                         Go Back
@@ -134,7 +134,7 @@ const UpdateUserRoles = ({ userInfo, handleLogout, children }) => {
                         ></div>
                         <button
                             type="button"
-                            className="btn btn-primary"
+                            className="btn btn-primary shadow"
                             onClick={handleEditRole}
                         >
                             Update UserRoles{" "}

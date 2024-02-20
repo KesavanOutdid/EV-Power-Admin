@@ -23,7 +23,7 @@ const AdminProfile = ({ children, handleLogout, userInfo }) => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('ManageProfile');
+                const response = await axios.get('/ManageProfile');
                 console.log(response.data)
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -35,7 +35,7 @@ const AdminProfile = ({ children, handleLogout, userInfo }) => {
 
     const handleUpdateProfile = async () => {
         try {
-            await axios.put(`ManageProfile/updateProfile/${userInfo._id}`, userData);
+            await axios.put(`/ManageProfile/updateProfile/${userInfo._id}`, userData);
             Swal.fire({
                 className:"",
                 position: "top-center",
@@ -106,7 +106,7 @@ const AdminProfile = ({ children, handleLogout, userInfo }) => {
                                                                 />
                                                             </div>
                                                             <div className="form-field col-lg-12 d-flex flex-column align-items-center">
-                                                                <button type="button" className="btn btn-primary" onClick={handleUpdateProfile}>Update User</button>
+                                                                <button type="button" className="btn btn-primary shadow" onClick={handleUpdateProfile}>Update User</button>
                                                             </div>
                                                         </form>
                                                     </section>

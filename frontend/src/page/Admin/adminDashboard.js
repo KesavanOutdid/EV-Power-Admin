@@ -1,61 +1,45 @@
-import React, { useEffect } from 'react';
-import Chart from 'chart.js/auto';
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Sidebar from '../../components/Slidebar/Sidebar';
 import NavComponent from '../../components/Navbar/Nav';
+import Widgets from '../../components/Widgets/widgets';
+
 const AdminDashboard = ({ userInfo, handleLogout,children }) => {
+    const [FaultedDevices, setFaultedDevices] = useState([]);
+    const fetchFaultedDevices = async () => {
+        try {
+            const response = await axios.get('/ManageFaultedDevices');
+            setFaultedDevices(response.data.FaultedDevices);
+        } catch (error) {
+            console.error('Error fetching chargers:', error);
+        }
+    };
+
+    const handleReload = () => {
+        const element = document.querySelector('.animatebutton');
+        element.classList.add('animated', 'rotateIn');
+    
+        setTimeout(function() {
+            element.classList.remove('rotateIn');
+        }, 1000);
+    
+        fetchFaultedDevices();
+    };
+    
 
     useEffect(() => {
-        let trafficChartInstance;
-
-        const initializeTrafficChart = () => {
-            const trafficChart = document.getElementById('TrafficChart');
-            if (trafficChart) {
-                // Destroy the previous chart instance if it exists
-                if (trafficChartInstance) {
-                    trafficChartInstance.destroy();
-                }
-
-                const ctx = trafficChart.getContext('2d');
-
-                // Dummy data (replace with your actual traffic data)
-                const data = {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                    datasets: [{
-                        label: 'Traffic Data',
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                };
-
-                // Create a new chart instance
-                trafficChartInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: data,
-                    options: {
-                        scales: {
-                            x: [{
-                                gridLines: {
-                                    display: false
-                                }
-                            }],
-                            y: [{
-                                ticks: {
-                                    beginAtZero: true
-                                },
-                                gridLines: {
-                                    display: false
-                                }
-                            }]
-                        }
-                    }
-                });
-            }
-        };
-
-        initializeTrafficChart();
+        // Fetch the list of chargers from your backend
+        fetchFaultedDevices();
     }, []);
+
+    const options = {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+    };
 
         return (
             <div className="container-fluid bg-light">
@@ -73,92 +57,65 @@ const AdminDashboard = ({ userInfo, handleLogout,children }) => {
                     <h2>Welcome <strong className='text-primary'>{userInfo.username}</strong>,</h2>
                     <p>Monitor and manage user  accounts.</p><hr className="fw-bold" />
                     {/* Widgets */}
-                        <div className="row">
-                            <div className="col-sm-6 col-lg-3 ">
-                                <div className="card text-white bg-flat-color-1 bg-primary mt-2 shadow">
-                                    <div className="card-body">
-                                        <div className="card-left pt-1 float-left">
-                                            <h3 className="mb-0 fw-r">
-                                                <span className="currency float-left mr-1">$</span>
-                                                <span className="count">23569</span>
-                                            </h3>
-                                            <p className="text-light mt-1 m-0">Revenue</p>
-                                        </div>
-                                        <div className="card-right float-right text-right ">
-                                        <i className="bi bi-graph-up fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-3">
-                                <div className="card text-white bg-flat-color- bg-success mt-2 shadow">
-                                    <div className="card-body">
-                                        <div className="card-left pt-1 float-left">
-                                            <h3 className="mb-0 fw-r">
-                                                <span className="count float-left">85</span>
-                                                <span>%</span>
-                                            </h3>
-                                            <p className="text-light mt-1 m-0">Dummy text here</p>
-                                        </div>
-                                        <div className="card-right float-right text-right">
-                                        <i className="fas fa-users  fade-5  fa-4x"></i> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-3">
-                                <div className="card text-white bg-flat-color-3 bg-warning mt-2 shadow">
-                                    <div className="card-body">
-                                        <div className="card-left pt-1 float-left">
-                                            <h3 className="mb-0 fw-r">
-                                                <span className="count">6569</span>
-                                            </h3>
-                                            <p className="text-light mt-1 m-0">Total clients</p>
-                                        </div>
-                                        <div className="card-right float-right text-right">
-                                        <i className="fas fa-users  fade-5  fa-4x"></i> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-3">
-                                <div className="card text-white bg-flat-color-2 bg-info mt-2 shadow">
-                                    <div className="card-body">
-                                        <div className="card-left pt-1 float-left">
-                                            <h3 className="mb-0 fw-r">
-                                                <span className="count">1490</span>
-                                            </h3>
-                                            <p className="text-light mt-1 m-0">New users</p>
-                                        </div>
-                                        <div className="card-right float-right text-right">
-                                        <i className="fas fa-users  fade-5  fa-4x"></i> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        {/* <!--  Traffic  --> */}
-                        <div className="row mt-5">
-                <div className="col-lg-12">
-                    <div className="card shadow">
-                        <div className="card-body">
-                            <h4 className="box-title">Traffic</h4>
+                        <Widgets/>
+                        <hr/>
+                        <main className=" mt- rounded position-relative">
+                        <div className="d-flex justify-content-between align-items-center mb-4">
+                            <h3 className="card-title mt-5 ml-3"><b>Device List</b>
+                            <button
+                                onClick={handleReload}
+                                className="ml-2 bg-transparent animate__animated animate__rotateIn animatebutton"
+                                type="text-black ms-3"
+                                style={{ border: 'none' }}
+                            >
+                                <i className="fa-solid fa-arrows-rotate"></i>
+                            </button>
+                            </h3>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-8">
-                                <div className="card-body">
-                                    {/* <canvas id="TrafficChart" height="150"></canvas> */}
-                                    <div id="traffic-chart" className="traffic-chart"></div>
+                        <div className="card mt-4">
+                                <div className="card-body shadow">
+                                    <p className="card-description">
+                                    <code>Faulted Device Information</code>
+                                    </p>
+                                    <div className="table-responsive">
+                                    <table className="table table-striped">
+                                    <thead>
+                                        <tr className='text-center'>
+                                            <th>Sl.No</th>
+                                            <th>Device ID</th>
+                                            <th>Status</th>
+                                            <th>Client IP</th>
+                                            <th>Error Code</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {FaultedDevices.length > 0 ? (
+                                        FaultedDevices
+                                            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)) 
+                                            .map((Device, index) => (
+                                                <tr key={Device._id} className="text-center">
+                                                    <td className="py-1 p-4">{index + 1}</td>
+                                                    <td className="py-1">{Device.chargerID}</td>
+                                                    <td className="py-1 text-danger">{Device.status}</td>
+                                                    <td className="py-1">{Device.clientIP}</td>
+                                                    <td className="py-1 text-danger">{Device.errorCode}</td>
+                                                    <td className="py-1">
+                                                        {Device.timestamp ? new Date(Device.timestamp).toLocaleString('en-US', options) : 'Data not found'}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                    ) : (
+                                        <tr className="text-center">
+                                            <td colSpan="8">No Record Found</td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                                    </table>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="col-lg-4">
-                                {/* ... (remaining code unchanged) */}
-                            </div>
-                        </div>
-                        <div className="card-body"></div>
-                    </div>
-                </div>
-            </div>
+                    </main>
                 </div>
                 </div>
                 {children}

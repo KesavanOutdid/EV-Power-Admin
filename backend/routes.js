@@ -4,7 +4,6 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const razorpay = require('razorpay');
-const crypto = require('crypto');
 const app = express();
 const database = require('./db');
 const {  ObjectId } = require('mongodb');
@@ -96,8 +95,47 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
         }
     });
-    
 
+    
+//Admin dashboard
+//Widgets
+router.get('/ManageWidgets', async (req, res) => {
+    try {
+    const db = await database.connectToDatabase();
+    //Fetch Total Revenue
+    const paymentDetails = db.collection("paymentDetails")
+    const Revenue = await paymentDetails.find().toArray();
+    const TotalRevenue = Revenue.reduce((total, payment) => total + payment.RechargeAmt, 0);
+    //Fetch Current Price 
+    const ev_pricing = db.collection("ev_pricing")
+    const UnitPrices = await ev_pricing.find().toArray();
+    const CurrentPrice = UnitPrices.map((item) => item.UnitPrice);
+    //Fetch Faulted Device Count    
+    const DeviceList = db.collection("ev_charger_status")
+    const FaultedDeviceCount = await DeviceList.countDocuments({ status: "Faulted" });
+
+    res.json({ success: true, TotalRevenue: TotalRevenue, CurrentPrice:CurrentPrice ,FaultedDeviceCount:FaultedDeviceCount });
+    } catch (error) {
+        console.error('Error fetching Faulted Device:', error);
+        logger.info('Error fetching Faulted Device:%o'+  error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+});
+
+//Faulted device 
+router.get('/ManageFaultedDevices', async (req, res) => {
+    try {
+    const db = await database.connectToDatabase();
+    const DeviceList = db.collection("ev_charger_status")
+    const FaultedDevices = await DeviceList.find({ status: "Faulted" }).toArray();
+
+    res.json({ success: true, FaultedDevices });
+    } catch (error) {
+        console.error('Error fetching Faulted Device:', error);
+        logger.info('Error fetching Faulted Device:%o'+  error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+});
 //Manage User Routes
 // Admin route for managing users
 router.get('/ManageUser', async (req, res) => {
@@ -547,6 +585,7 @@ router.get('/ManageTotalRevenue', async (req, res) => {
             res.status(500).json({ success: false, message: 'Internal Server Error' });
         }
     });
+
 // Profile Routes...
 router.get('/ManageProfile', async (req, res) => {
         try {
@@ -585,11 +624,14 @@ router.put('/ManageProfile/updateProfile/:id', async (req, res) => {
             res.status(404).json({ message: 'Profile not found or details not updated' });
         }
     
+
         } catch (error) {
         console.error('Error updating user:', error);
         logger.error('Error updating user: %O'+ error);
         res.status(500).json({ message: 'Internal Server Error' });
         }
     });
+
+
 
 module.exports = router;

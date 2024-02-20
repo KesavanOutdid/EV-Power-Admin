@@ -15,7 +15,7 @@ const ViewWalletTransaction = ({ userInfo, handleLogout, children }) => {
 
     const fetchChargersSession = async () => {
         try {
-        const response = await axios.get(`ManageUser/ViewWalletTransaction/${username}`);
+        const response = await axios.get(`/ManageUser/ViewWalletTransaction/${username}`);
         setTransactions(response.data.Transactions);
 
         } catch (error) {
@@ -58,7 +58,7 @@ const ViewWalletTransaction = ({ userInfo, handleLogout, children }) => {
                     <h3 className="card-title mt-5 ">
                         <b>Transaction History</b>
                     </h3>
-                    <button className="btn btn-info text-white mt-4" onClick={() => history.goBack()}>
+                    <button className="btn btn-info text-white mt-4 shadow" onClick={() => history.goBack()}>
                         Go Back
                     </button>
                     </div>
@@ -68,7 +68,7 @@ const ViewWalletTransaction = ({ userInfo, handleLogout, children }) => {
                     </b>
                     </h4>
                     <div className="card mt-4">
-                    <div className="card-body">
+                    <div className="card-body shadow">
                         <p className="card-description">
                         <code>Wallet Transaction Details</code>
                         </p>

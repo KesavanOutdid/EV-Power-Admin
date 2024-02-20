@@ -61,7 +61,7 @@ const Register = () => {
                 return false;
             }
 
-            await axios.post("register", {
+            await axios.post("/register", {
                 username,
                 phone,
                 password: password.join(""),
