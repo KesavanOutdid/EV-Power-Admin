@@ -69,6 +69,7 @@ To get started with the EV Charger Application, follow the steps below:
 
   To contribute to the development of the EV Charger Application, follow these steps:
   Fork the repository.
+  
   Create a new branch for your feature/bugfix: git checkout -b feature-name
   Make your changes and commit them: git commit -m 'Your message'
   Push the changes to your fork: git push origin feature-name
