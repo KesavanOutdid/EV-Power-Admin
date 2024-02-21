@@ -3,7 +3,7 @@ import AdminDashboard from './Admin/adminDashboard';
 import UserDashboard from "./User/UserDashboard "; 
 
 const Dashboard = ({ userInfo, handleLogout }) => {
-    const isAdmin = userInfo && userInfo.roleID === '2' ;
+    const isAdmin = userInfo && userInfo.roleID === 2 ;
     return (
         <div>
             {isAdmin ? (

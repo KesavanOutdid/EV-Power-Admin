@@ -54,7 +54,7 @@ const UpdateUserRoles = ({ userInfo, handleLogout, children }) => {
                 icon: "success",
                 title: "UserRole updated successfully",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
             });
             history.goBack();
         }

@@ -15,7 +15,7 @@ const Sidebar = () => {
                     </li>
                     <li className={`nav-item ${location.pathname === '/ManageUser' ? 'active' : ''}`}>
                         <Link to="/ManageUser" className="nav-link">
-                            <i class="fa-solid fa-people-roof me-2"></i>
+                            <i className="fa-solid fa-people-roof me-2"></i>
                             <span className="menu-title">Manage Users</span>
                         </Link>
                     </li>

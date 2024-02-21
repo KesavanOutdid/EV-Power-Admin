@@ -42,6 +42,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                 confirmButtonText: 'Yes, delete it!',
                 cancelButtonText: 'No, cancel!',
                 showCancelButton: true,
+
             })
             .then(async (result) => {
                 if (result.isConfirmed) {

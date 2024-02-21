@@ -16,31 +16,7 @@ const Login = ({ handleLogin }) => {
         newPassword[index] = value;
         setPassword(newPassword);
     };
-    const handleKeyDown = (event, index) => {
-        if (event.key === 'Backspace') {
-            if (index > 0) {
-                const newPassword = [...password];
-                newPassword[index - 0] = '';
-                setPassword(newPassword);
-                // Move focus to the previous input field
-                passwordRefs.current[index - 1].focus();
-            }
-        } else if (event.key !== 'Enter') {
-            const value = event.key;
-            const newPassword = [...password];
-            newPassword[index] = value;
-            setPassword(newPassword);
-    
-            // Move focus to the next input field if not the last one
-            if (index < 3 && passwordRefs.current[index + 1]) {
-                const nextIndex = index + 1;
-                passwordRefs.current[nextIndex].focus();
-            }
-        }
-    };
-    
-    
-    
+
     const handleLoginRequest = async (e) => {
         e.preventDefault();
         try {
@@ -52,7 +28,12 @@ const Login = ({ handleLogin }) => {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "Login failed",   
+                title: "Login failed",
+                text: "Invalid Credentials",
+                customClass: {
+                    popup: 'swal-popup-center', // Center the entire popup
+                    icon: 'swal-icon-center',   // Center the icon within the popup
+                },
             });
         }
     };
@@ -84,15 +65,47 @@ const Login = ({ handleLogin }) => {
                                     {password.map((char, index) => (
                                         <input
                                             key={index}
-                                            type="password"
+                                            ref={(inputRef) => passwordRefs.current[index] = inputRef}
+                                            type="password" // Set the type to "number" to allow only numeric input
                                             autoComplete="on" // Enable autocomplete
                                             value={char}
-                                            maxLength="0"
-                                            className="form-control form-control-lg input mr-2"
-                                            onChange={(e) => handleChange(index, e.target.value)}
-                                            onKeyDown={(e) => handleKeyDown(e, index)}
+                                            // Limit to one character
+                                            className="form-control form-control-lg input"
+                                            style={{
+                                                margin: 3,
+                                                flex: 1,
+                                                textAlign: 'center',
+                                                padding: '10px',
+                                                boxSizing: 'border-box',
+                                            }}  
+                                            onChange={(e) => {
+                                                const newValue = e.target.value;
+                                                handleChange(index, newValue);
+
+                                                if (newValue && index < password.length - 1) {
+                                                    // Move focus to the next input if a value is entered
+                                                    passwordRefs.current[index + 1].focus();
+                                                }
+                                            }}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Delete') {
+                                                    e.preventDefault();
+                                                    // Delete the value and move focus to the next input
+                                                    handleChange(index, '');
+                                                    if (index < password.length - 1) {
+                                                        passwordRefs.current[index + 1].focus();
+                                                    }
+                                                } else if (e.key === 'Backspace') {
+                                                    e.preventDefault();
+                                                    // Delete the current value and move focus to the previous input
+                                                    handleChange(index, '');
+                                                    if (index > 0) {
+                                                        passwordRefs.current[index - 1].focus();
+                                                    }
+                                                }
+                                            }}        
                                             required
-                                            ref={(inputRef) => passwordRefs.current[index] = inputRef}
+                                            maxLength={1}
                                         />
                                     ))}
                                 </div>

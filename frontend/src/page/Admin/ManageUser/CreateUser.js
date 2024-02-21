@@ -43,7 +43,7 @@ const CreateUser = ({ userInfo, handleLogout, children }) => {
                 icon: "success",
                 title: response.data.message,
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
             });
             history.goBack();
             }                    
@@ -116,10 +116,8 @@ const CreateUser = ({ userInfo, handleLogout, children }) => {
                             style={{ width: '50%' }}
                         >
                             <option value="" disabled>Select Role</option>
-                            {/* <option value="1" selected={newUser.roleID === '1'}>User</option>
-                            <option value="2" selected={newUser.roleID === '2'}>Admin</option> */}
-                            <option value="1" >User</option>
-                            <option value="2" >Admin</option>
+                            <option value={1}>User</option>
+                            <option value={2}>Admin</option>
                         </select>
                         </div>
                         {/* Validation Message and Create User Button */}

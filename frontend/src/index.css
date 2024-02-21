@@ -1,3 +1,12 @@
+.swal-popup-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swal-icon-center {
+  margin-top: 10% !important; /* Remove any default margin for the icon */
+}
 
 .get-in-touch {
   max-width: 800px;
