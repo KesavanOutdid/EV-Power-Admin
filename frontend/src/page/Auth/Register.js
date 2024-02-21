@@ -9,7 +9,6 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState(["", "", "", ""]);
-    const [setMessage] = useState("");
     const history = useHistory();
     const passwordRefs = useRef([]);
 
@@ -18,46 +17,35 @@ const Register = () => {
         newPassword[index] = value;
         setPassword(newPassword);
     };
-    
-    const handleKeyDown = (event, index) => {
-        if (event.key === "Backspace") {
-            if (index > 0) {
-                const newPassword = [...password];
-                newPassword[index - 1] = "";
-                setPassword(newPassword);
-                // Move focus to the previous input field
-                passwordRefs.current[index - 1].focus();
-            }
-        } else if (event.key !== "Enter") {
-            const value = event.key;
-            const newPassword = [...password];
-            newPassword[index] = value;
-            setPassword(newPassword);
-    
-            // Move focus to the next input field if not the last one
-            if (index < 3 && passwordRefs.current[index + 1]) {
-                const nextIndex = index + 1;
-                passwordRefs.current[nextIndex].focus();
-            }
-        }
-    };
-
+    function RegError(Message){
+        Swal.fire({
+            title: "SignUp failed", 
+            text: Message,
+            icon: "error",
+            customClass: {
+                popup: 'swal-popup-center', // Center the entire popup
+                icon: 'swal-icon-center',   // Center the icon within the popup
+            },
+        });
+    }
     const handleRegister = async (e) => {
         e.preventDefault();
-
         try {
             if (!/^\S+$/.test(username)) {
-                setMessage("Username must not contain spaces.");
+                let setMessage ="Username must not contain spaces.";
+                RegError(setMessage);
                 return false;
             }
 
             if (!/^\d{10}$/.test(phone)) {
-                setMessage("Please enter a valid phone number with exactly 10 digits.");
+                let setMessage ="Please enter a valid phone number with exactly 10 digits.";
+                RegError(setMessage);
                 return false;
             }
 
             if (!/^\d{4}$/.test(password.join(""))) {
-                setMessage("Password must be exactly 4 digits long.");
+                let setMessage ="Password must be exactly 4 digits long.";
+                RegError(setMessage);
                 return false;
             }
 
@@ -66,12 +54,17 @@ const Register = () => {
                 phone,
                 password: password.join(""),
             });
-            history.push("/login");
+            history.push("/");
         } catch (error) {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "SignUp failed",   
+                title: "SignUp failed", 
+                text: error,
+                customClass: {
+                    popup: 'swal-popup-center', // Center the entire popup
+                    icon: 'swal-icon-center',   // Center the icon within the popup
+                },
             });
         }
     };
@@ -113,15 +106,47 @@ const Register = () => {
                                     {password.map((char, index) => (
                                         <input
                                             key={index}
-                                            type="password"
+                                            ref={(inputRef) => passwordRefs.current[index] = inputRef}
+                                            type="password" // Set the type to "number" to allow only numeric input
                                             autoComplete="on" // Enable autocomplete
                                             value={char}
-                                            maxLength="0"
-                                            className="form-control form-control-lg input mr-2"
-                                            onChange={(e) => handleChange(index, e.target.value)}
-                                            onKeyDown={(e) => handleKeyDown(e, index)}
+                                            // Limit to one character
+                                            className="form-control form-control-lg input"
+                                            style={{
+                                                margin: 3,
+                                                flex: 1,
+                                                textAlign: 'center',
+                                                padding: '10px',
+                                                boxSizing: 'border-box',
+                                            }}  
+                                            onChange={(e) => {
+                                                const newValue = e.target.value;
+                                                handleChange(index, newValue);
+
+                                                if (newValue && index < password.length - 1) {
+                                                    // Move focus to the next input if a value is entered
+                                                    passwordRefs.current[index + 1].focus();
+                                                }
+                                            }}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Delete') {
+                                                    e.preventDefault();
+                                                    // Delete the value and move focus to the next input
+                                                    handleChange(index, '');
+                                                    if (index < password.length - 1) {
+                                                        passwordRefs.current[index + 1].focus();
+                                                    }
+                                                } else if (e.key === 'Backspace') {
+                                                    e.preventDefault();
+                                                    // Delete the current value and move focus to the previous input
+                                                    handleChange(index, '');
+                                                    if (index > 0) {
+                                                        passwordRefs.current[index - 1].focus();
+                                                    }
+                                                }
+                                            }}        
                                             required
-                                            ref={(inputRef) => passwordRefs.current[index] = inputRef}
+                                            maxLength={1}
                                         />
                                     ))}
                                 </div>
@@ -129,7 +154,7 @@ const Register = () => {
                                         <button className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN UP</button>
                                     </div>
                                     <div className="text-center mt-4 font-weight-light">
-                                        Already have an account? <Link to="/login" className="text-primary">Login</Link>
+                                        Already have an account? <Link to="/" className="text-primary">Login</Link>
                                     </div>
                                 </form>
                             </div>

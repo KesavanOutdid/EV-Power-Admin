@@ -41,7 +41,8 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
                 icon: "success",
                 title: "Chargerlist updated successfully",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
+
             });
             history.goBack();
         } catch (error) {

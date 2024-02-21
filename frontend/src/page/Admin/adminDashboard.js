@@ -64,12 +64,12 @@ const AdminDashboard = ({ userInfo, handleLogout,children }) => {
                             <h3 className="card-title mt-5 ml-3"><b>Device List</b>
                             <button
                                 onClick={handleReload}
-                                className="ml-2 bg-transparent animate__animated animate__rotateIn animatebutton"
-                                type="text-black ms-3"
+                                className="btn btn-outline-info rounded-circle ml-2 mb-1 p-2 animate__animated animate__rotateIn animatebutton"
                                 style={{ border: 'none' }}
                             >
                                 <i className="fa-solid fa-arrows-rotate"></i>
                             </button>
+
                             </h3>
                         </div>
                         <div className="card mt-4">

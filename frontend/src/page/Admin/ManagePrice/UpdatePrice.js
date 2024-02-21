@@ -51,7 +51,7 @@ const UpdatePrice = ({ userInfo, handleLogout, children }) => {
                 icon: "success",
                 title: "Price updated successfully",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
             });
             history.goBack();
         }

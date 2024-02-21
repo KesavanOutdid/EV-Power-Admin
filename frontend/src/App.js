@@ -146,7 +146,7 @@ const App = () => {
         });
     
         //checkbox and radios
-        $(".form-check label,.form-radio label").append('<i class="input-helper"></i>');
+        $(".form-check label,.form-radio label").append('<i className"input-helper"></i>');
     
         //Horizontal menu in mobile
         $('[data-toggle="horizontal-menu-toggle"]').on("click", function() {
@@ -186,9 +186,7 @@ const App = () => {
 
   return (
     <Router>
-        <Route exact path="/" component={Home} />
-        <Route path="/register" component={SignUp} />
-        <Route   path="/login">
+      <Route exact path="/">
           {loggedIn ? <Redirect to="/Dashboard" /> : <Login handleLogin={handleLogin} />}
         </Route>
         <Route path="/Dashboard">
@@ -199,11 +197,10 @@ const App = () => {
             <Dashboard userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
-
-
+      <Route path="/register" component={SignUp} />
         {/* Admin SIde Route */}
       {/* Admin Side Route */}
       <Route path="/AdminDashboard">
@@ -214,7 +211,7 @@ const App = () => {
             <AdminDashboard userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/AdminProfile">
@@ -225,7 +222,7 @@ const App = () => {
             <AdminProfile userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/ManageUser">
@@ -236,7 +233,7 @@ const App = () => {
             <ManageUser userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/CreateUser" >
@@ -247,7 +244,7 @@ const App = () => {
             <CreateUser userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/UpdateUser">
@@ -258,7 +255,7 @@ const App = () => {
             <UpdateUser userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/ViewSession">
@@ -269,7 +266,7 @@ const App = () => {
             <ViewSession userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/ViewWalletTransaction">
@@ -280,7 +277,7 @@ const App = () => {
             <ViewWalletTransaction userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/UserRole" >
@@ -291,7 +288,7 @@ const App = () => {
             <UserRole userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/CreateUserRoles" >
@@ -302,7 +299,7 @@ const App = () => {
             <CreateUserRoles userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/UpdateUserRoles"  >
@@ -313,7 +310,7 @@ const App = () => {
             <UpdateUserRoles userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/ChargerList" >
@@ -324,7 +321,7 @@ const App = () => {
             <ChargerList userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/CreateCharger" >
@@ -335,7 +332,7 @@ const App = () => {
             <CreateCharger userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/UpdateCharger" >
@@ -346,7 +343,7 @@ const App = () => {
             <UpdateCharger userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         <Route path="/ManageSessionHistory" >
@@ -357,7 +354,7 @@ const App = () => {
             <ManageSessionHistory userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/ViewSessionHistory" >
@@ -368,7 +365,7 @@ const App = () => {
             <ViewSessionHistory userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/TotalRevenue" >
@@ -379,7 +376,7 @@ const App = () => {
             <TotalRevenue userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/ManagePrice" >
@@ -390,7 +387,7 @@ const App = () => {
             <ManagePrice userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
       <Route path="/UpdatePrice" >
@@ -401,7 +398,7 @@ const App = () => {
             <UpdatePrice userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
         
@@ -413,7 +410,7 @@ const App = () => {
             <UserDashboard userInfo={userInfo} handleLogout={handleLogout} />
           )
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )}
       </Route>
     </Router>

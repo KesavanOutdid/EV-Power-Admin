@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
             username,
             phone,
             password,
-            roleID: '1', // Default value "user"
+            roleID: 2, // Default value "user"
             walletBalance: isNaN(walletBalance) ? 0.00 : walletBalance, // Set default value if NaN
         });
     
@@ -67,7 +67,7 @@ router.post('/login', async (req, res) => {
         const User = db.collection('users');
     
         const user = await User.findOne({ username });
-        if (!user || user.password !== password) {
+        if (!user || user.password !== password || user.roleID !== 2) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }else 
         console.log(user.username + " has logged in");
@@ -75,10 +75,10 @@ router.post('/login', async (req, res) => {
     
         const token = jwt.sign({ username }, 'secret-key', { expiresIn: '1h' });
     
-        let roleID = '1'; // Default role
+        let roleID = 1; // Default role
         if (user.admin) {
             // role = 'admin';\
-            roleID = '2';
+            roleID = 2;
         }
     
         res.status(200).json({
@@ -171,7 +171,7 @@ router.post('/Admin/ManageUser/createUser', async (req, res) => {
             await User.insertOne({
                 username,
                 phone,
-                roleID, // Set the admin based on the role
+                roleID:parseInt(roleID), // Set the admin based on the role
                 password,
                 walletBalance: parseFloat(walletBalance), // Parse walletBalance to double
     
@@ -199,7 +199,7 @@ router.put('/Admin/ManageUser/updateUser/:id', async (req, res) => {
     
         const result = await User.updateOne(
             { _id:new ObjectId(userId) },
-            { $set: { username,password, phone, walletBalance ,roleID} }
+            { $set: { username,password, phone, walletBalance: parseFloat(walletBalance) ,roleID:parseInt(roleID)} }
         );
         if (result.modifiedCount === 1) {
             console.log('User updated successfully',username);

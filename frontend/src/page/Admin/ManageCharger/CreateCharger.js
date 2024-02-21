@@ -88,7 +88,8 @@ const CreateUser = ({userInfo, handleLogout,children }) => {
                     icon: "success",
                     title:"Charger has been created!",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
+
                 });
                 history.goBack();
             }

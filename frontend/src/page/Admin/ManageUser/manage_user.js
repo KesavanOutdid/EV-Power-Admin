@@ -127,7 +127,7 @@ return (
                             onChange={handleSearch}
                         />
                     </p>
-                    <div className="table-responsive">
+                    <div className="table-responsive ">
                     <table className="table table-striped">
                         <thead>
                         <tr className='text-center'>
@@ -136,7 +136,7 @@ return (
                             <th>Phone Number</th>
                             <th>Password</th>
                             <th>Wallet Balance</th>
-                            <th>Is Admin</th>
+                            <th>Admin/User</th>
                             <th>Session History</th>
                             <th>Wallet Transaction</th>
                             <th>Actions</th>
@@ -152,7 +152,7 @@ return (
                                         <td className="py-1">{user.password}</td>
                                         <td className="py-1">{user.walletBalance}</td>
                                         <td className="py-1">
-                                            {user.roleID === '1' ? 'User' : user.roleID === '2' ? 'Admin' : ''}
+                                            {user.roleID === 1 ? 'User' : user.roleID === 2 ? 'Admin' : ''}
                                         </td>
                                         <td className="py-1">
                                             {/* Session History Buttons */}
@@ -186,7 +186,7 @@ return (
                                                     Edit
                                                 </button>
                                                 <button
-                                                    className="btn btn-danger"
+                                                    className="btn btn-danger me-2"
                                                     onClick={() => handleDeleteUser(user._id)}
                                                 >
                                                     Delete
@@ -197,7 +197,7 @@ return (
                                 ))
                             ) : (
                                 <tr className="text-center">
-                                    <td colSpan="7">No Record Found</td>
+                                    <td colSpan="9">No Record Found</td>
                                 </tr>
                             )}
                         </tbody>

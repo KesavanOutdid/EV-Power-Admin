@@ -42,7 +42,7 @@ const AdminProfile = ({ children, handleLogout, userInfo }) => {
                 icon: "success",
                 title: "Profile updated successfully",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
             });
 
             setUsers(prevUserData => ({ ...prevUserData, password: userData.password }));

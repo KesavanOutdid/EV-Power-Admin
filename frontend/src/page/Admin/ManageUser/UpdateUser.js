@@ -52,7 +52,8 @@ const UpdateUser = ({userInfo, handleLogout,children }) => {
                     icon: "success",
                     title: "User updated successfully",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
+
                 });
                 history.goBack();
             }
@@ -125,8 +126,8 @@ const UpdateUser = ({userInfo, handleLogout,children }) => {
                                 <option value="" disabled>Select Role</option>
                             {/* <option value="1" selected={newUser.roleID === '1'}>User</option>
                             <option value="2" selected={newUser.roleID === '2'}>Admin</option> */}
-                            <option value="1" >User</option>
-                            <option value="2" >Admin</option>
+                            <option value={1}>User</option>
+                            <option value={2}>Admin</option>
                             </select>
                             </div>
 
