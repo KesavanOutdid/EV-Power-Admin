@@ -13,7 +13,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
 
     const fetchChargers = async () => {
         try {
-            const response = await axios.get('/ManageCharger');
+            const response = await axios.get('/Admin/ManageCharger');
             setChargers(response.data.chargers);
         } catch (error) {
             console.error('Error fetching chargers:', error);
@@ -46,7 +46,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
             .then(async (result) => {
                 if (result.isConfirmed) {
                     try {
-                        await axios.delete(`/ManageCharger/deleteCharger/${chargerId}`);
+                        await axios.delete(`/Admin/ManageCharger/deleteCharger/${chargerId}`);
                         fetchChargers();
                         swalWithBootstrapButtons.fire({
                             title: 'Deleted!',

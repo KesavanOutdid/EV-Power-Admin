@@ -1,3 +1,6 @@
+/* eslint-disable strict */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-lone-blocks */
 import jQuery from 'jquery';
 import PerfectScrollbar from 'perfect-scrollbar';
 

@@ -8,7 +8,7 @@ const AdminDashboard = ({ userInfo, handleLogout,children }) => {
     const [FaultedDevices, setFaultedDevices] = useState([]);
     const fetchFaultedDevices = async () => {
         try {
-            const response = await axios.get('/ManageFaultedDevices');
+            const response = await axios.get('/Admin/ManageFaultedDevices');
             setFaultedDevices(response.data.FaultedDevices);
         } catch (error) {
             console.error('Error fetching chargers:', error);

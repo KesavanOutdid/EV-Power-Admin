@@ -99,7 +99,7 @@ router.post('/login', async (req, res) => {
     
 //Admin dashboard
 //Widgets
-router.get('/ManageWidgets', async (req, res) => {
+router.get('/Admin/ManageWidgets', async (req, res) => {
     try {
     const db = await database.connectToDatabase();
     //Fetch Total Revenue
@@ -123,7 +123,7 @@ router.get('/ManageWidgets', async (req, res) => {
 });
 
 //Faulted device 
-router.get('/ManageFaultedDevices', async (req, res) => {
+router.get('/Admin/ManageFaultedDevices', async (req, res) => {
     try {
     const db = await database.connectToDatabase();
     const DeviceList = db.collection("ev_charger_status")
@@ -136,9 +136,11 @@ router.get('/ManageFaultedDevices', async (req, res) => {
         res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
 });
+
+
 //Manage User Routes
 // Admin route for managing users
-router.get('/ManageUser', async (req, res) => {
+router.get('/Admin/ManageUser', async (req, res) => {
     try {
         const db = await database.connectToDatabase();
         const User = db.collection("users")
@@ -151,7 +153,7 @@ router.get('/ManageUser', async (req, res) => {
         }
     });
 // Create a new user
-router.post('/ManageUser/createUser', async (req, res) => {    
+router.post('/Admin/ManageUser/createUser', async (req, res) => {    
         try {
         const { username, phone, walletBalance, password, roleID } = req.body;
         const db = await database.connectToDatabase();
@@ -188,7 +190,7 @@ router.post('/ManageUser/createUser', async (req, res) => {
         }
     });
 // Update User Route
-router.put('/ManageUser/updateUser/:id', async (req, res) => {    
+router.put('/Admin/ManageUser/updateUser/:id', async (req, res) => {    
         try {
         const userId = req.params.id;
         const { username, phone, password, walletBalance ,roleID} = req.body;
@@ -215,7 +217,7 @@ router.put('/ManageUser/updateUser/:id', async (req, res) => {
         }
     });
 // Delete User Route
-router.delete('/ManageUser/deleteUser/:id', async (req, res) => {
+router.delete('/Admin/ManageUser/deleteUser/:id', async (req, res) => {
         try {
         const userId = req.params.id;
         console.log("Received DELETE request for user ID:", userId);
@@ -241,7 +243,7 @@ router.delete('/ManageUser/deleteUser/:id', async (req, res) => {
         }
     });
 // View SessionHistory in ManageUser Route
-router.get('/ManageUser/ViewSession/:username', async (req, res) => {
+router.get('/Admin/ManageUser/ViewSession/:username', async (req, res) => {
         try {
         const username = req.params.username;
         
@@ -256,7 +258,7 @@ router.get('/ManageUser/ViewSession/:username', async (req, res) => {
         }
     });
 // View Wallet Transaction in ManageUser Route
-router.get('/ManageUser/ViewWalletTransaction/:username', async (req, res) => {
+router.get('/Admin/ManageUser/ViewWalletTransaction/:username', async (req, res) => {
         try {
         const username = req.params.username;
         
@@ -283,7 +285,7 @@ router.get('/ManageUser/ViewWalletTransaction/:username', async (req, res) => {
 
 // Chargerlist Routes...
 // Read all chargers
-router.get('/ManageCharger', async (req, res) => {
+router.get('/Admin/ManageCharger', async (req, res) => {
         try {
         const db = await database.connectToDatabase();
         const ChargerList = db.collection("ev_details")
@@ -297,7 +299,7 @@ router.get('/ManageCharger', async (req, res) => {
         }
     });
 // Create a new charger
-router.post('/ChargerList/chargers', async (req, res) => {
+router.post('/Admin/ChargerList/chargers', async (req, res) => {
         try {
         const {ChargerID, transactionId, ChargerTagID, charger_model, charger_type, current_phase, gun_connector,
             max_current, max_power, socket_count, current_or_active_user, ip,} = req.body;
@@ -328,7 +330,7 @@ router.post('/ChargerList/chargers', async (req, res) => {
     });
     
 // deleting a charger
-router.delete('/ManageCharger/deleteCharger/:id', async (req, res) => {
+router.delete('/Admin/ManageCharger/deleteCharger/:id', async (req, res) => {
         try {
             const chargerId = req.params.id;
             console.log('Received DELETE request for charger ID:', chargerId);
@@ -355,7 +357,7 @@ router.delete('/ManageCharger/deleteCharger/:id', async (req, res) => {
         }
     });
 // Update Charger 
-router.put('/ManageCharger/updateCharger/:id', async (req, res) => {
+router.put('/Admin/ManageCharger/updateCharger/:id', async (req, res) => {
         try {
         const chargerId = req.params.id;
         const {
@@ -394,7 +396,7 @@ router.put('/ManageCharger/updateCharger/:id', async (req, res) => {
 
 // User Roles Routes...
 //Read all UserRoles
-router.get('/ManageUserRoles', async (req, res) => {
+router.get('/Admin/ManageUserRoles', async (req, res) => {
         try {
         const db = await database.connectToDatabase();
         const UserRole = db.collection("User_Roles");
@@ -408,7 +410,7 @@ router.get('/ManageUserRoles', async (req, res) => {
         }
     });
 // Create a new user role
-router.post('/createUserRoles', async (req, res) => {    
+router.post('/Admin/createUserRoles', async (req, res) => {    
         try {
         const { roleID, roleName } = req.body;
         const db = await database.connectToDatabase();
@@ -427,7 +429,7 @@ router.post('/createUserRoles', async (req, res) => {
         }
     });
 // Update user role
-router.put('/ManageUserRoles/UpdateuserRoles/:id', async (req, res) => {
+router.put('/Admin/ManageUserRoles/UpdateuserRoles/:id', async (req, res) => {
         try {
         const { roleID, roleName } = req.body;
         const Use5rRoleID = req.params.id;
@@ -460,7 +462,7 @@ router.put('/ManageUserRoles/UpdateuserRoles/:id', async (req, res) => {
         }
     });
 // Delete a user role
-router.delete('/ManageUserRoles/deleteuserRoles/:id', async (req, res) => {    
+router.delete('/Admin/ManageUserRoles/deleteuserRoles/:id', async (req, res) => {    
         try {
             const userId = req.params.id;
             console.log('Received DELETE request for Use5rRole ID :', userId);
@@ -489,7 +491,7 @@ router.delete('/ManageUserRoles/deleteuserRoles/:id', async (req, res) => {
 
 // SessionHistory Routes...
 // Read all SessionHistory
-router.get('/ManageSessionHistory', async (req, res) => {
+router.get('/Admin/ManageSessionHistory', async (req, res) => {
         try {
         const db = await database.connectToDatabase();
         const ChargerList = db.collection("ev_details")
@@ -503,7 +505,7 @@ router.get('/ManageSessionHistory', async (req, res) => {
         }
     });
 // View SessionHistory  Route
-router.get('/ManageSessionHistory/ViewSessionHistory/:chargerID', async (req, res) => {
+router.get('/Admin/ManageSessionHistory/ViewSessionHistory/:chargerID', async (req, res) => {
         try {
         const chargerID = req.params.chargerID;
         const db = await database.connectToDatabase();
@@ -521,7 +523,7 @@ router.get('/ManageSessionHistory/ViewSessionHistory/:chargerID', async (req, re
 
 //Price Route...
 // Read  Price
-router.get('/ManagePrice', async (req, res) => {
+router.get('/Admin/ManagePrice', async (req, res) => {
     try {
         const db = await database.connectToDatabase();
         const ev_pricing = db.collection("ev_pricing")
@@ -534,7 +536,7 @@ router.get('/ManagePrice', async (req, res) => {
         }
     });
 //Update price
-router.put('/ManagePrice/UpdatePrice/:id', async (req, res) => {
+router.put('/Admin/ManagePrice/UpdatePrice/:id', async (req, res) => {
     try {
     const updatedPrice  = req.body;
     const id = req.params.id;
@@ -570,7 +572,7 @@ router.put('/ManagePrice/UpdatePrice/:id', async (req, res) => {
 
 //TotalRevenue Route
 // Read all TotalRevenue
-router.get('/ManageTotalRevenue', async (req, res) => {
+router.get('/Admin/ManageTotalRevenue', async (req, res) => {
     try {
         const db = await database.connectToDatabase();
         const paymentDetails = db.collection("paymentDetails")
@@ -587,7 +589,7 @@ router.get('/ManageTotalRevenue', async (req, res) => {
     });
 
 // Profile Routes...
-router.get('/ManageProfile', async (req, res) => {
+router.get('/Admin/ManageProfile', async (req, res) => {
         try {
         const db = await database.connectToDatabase();
         const User = db.collection('users');
@@ -600,7 +602,7 @@ router.get('/ManageProfile', async (req, res) => {
         }
     });
 // Update profile
-router.put('/ManageProfile/updateProfile/:id', async (req, res) => {
+router.put('/Admin/ManageProfile/updateProfile/:id', async (req, res) => {
         try {
         const userId = req.params.id;
         const { username, phone, password, email, address } = req.body;

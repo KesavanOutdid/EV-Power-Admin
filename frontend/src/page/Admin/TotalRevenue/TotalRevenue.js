@@ -10,7 +10,7 @@ const TotalRevenue = ({ userInfo, handleLogout, children }) => {
 
     const fetchTotalRevenue = async () => {
         try {
-            const response = await axios.get('/ManageTotalRevenue');
+            const response = await axios.get('/Admin/ManageTotalRevenue');
             const { TotalRevenue, Revenue } = response.data;
             setRevenue(Revenue);
             setTotalRevenue(TotalRevenue);

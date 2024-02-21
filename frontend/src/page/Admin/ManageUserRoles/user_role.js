@@ -15,7 +15,7 @@ const UserRole = ({userInfo, handleLogout,children  }) => {
 
   const fetchRoles = async () => {
     try {
-      const response = await axios.get('/ManageUserRoles');
+      const response = await axios.get('/Admin/ManageUserRoles');
       setRoles(response.data.roles);
     } catch (error) {
       console.error('Error fetching user roles:', error);
@@ -41,7 +41,7 @@ const UserRole = ({userInfo, handleLogout,children  }) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-            await axios.delete(`/ManageUserRoles/deleteuserRoles/${roleID}`);
+            await axios.delete(`/Admin/ManageUserRoles/deleteuserRoles/${roleID}`);
             fetchRoles();
                 swalWithBootstrapButtons.fire({
                     title: "Deleted!",

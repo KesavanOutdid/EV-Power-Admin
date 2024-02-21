@@ -36,7 +36,7 @@ const CreateUserRoles = ({userInfo, handleLogout,children }) => {
             // Validate the form
             if (validateForm()) {
                 console.log('Creating userRoles:', newRole);
-                await axios.post('/createUserRoles', newRole);
+                await axios.post('/Admin/createUserRoles', newRole);
                 setNewRole({ roleID: '', roleName: '' });
                 Swal.fire({
                     position: "center",

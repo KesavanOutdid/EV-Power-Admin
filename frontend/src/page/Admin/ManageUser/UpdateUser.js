@@ -46,7 +46,7 @@ const UpdateUser = ({userInfo, handleLogout,children }) => {
             if (validateForm()) {
 
                 console.log('updating user user:', userData);
-                await axios.put(`/ManageUser/updateUser/${userData._id}`, userData);
+                await axios.put(`/Admin/ManageUser/updateUser/${userData._id}`, userData);
                 Swal.fire({
                     position: "center",
                     icon: "success",

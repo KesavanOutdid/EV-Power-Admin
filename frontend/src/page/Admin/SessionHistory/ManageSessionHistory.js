@@ -11,7 +11,7 @@ const ManageSessionHistory = ({ userInfo, handleLogout, children }) => {
 
     const fetchChargers = async () => {
         try {
-            const response = await axios.get('/ManageSessionHistory');
+            const response = await axios.get('/Admin/ManageSessionHistory');
             setChargers(response.data.chargers);
         } catch (error) {
             console.error('Error fetching chargers:', error);

@@ -46,7 +46,7 @@ const UpdateUserRoles = ({ userInfo, handleLogout, children }) => {
         if (validateForm()) {
             console.log("updating userRoles:", editingRole);
             await axios.put(
-            `/ManageUserRoles/UpdateuserRoles/${editingRole._id}`,
+            `/Admin/ManageUserRoles/UpdateuserRoles/${editingRole._id}`,
             editingRole
             );
             Swal.fire({

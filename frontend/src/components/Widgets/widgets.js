@@ -8,7 +8,7 @@ const Widgets = ({ userInfo, handleLogout,children }) => {
 
     const fetchWidgets = async () => {
         try {
-            const response = await axios.get('/ManageWidgets');
+            const response = await axios.get('/Admin/ManageWidgets');
             console.log("response", response)
             const { TotalRevenue ,CurrentPrice,FaultedDeviceCount} = response.data;
             setTotalRevenue(TotalRevenue);

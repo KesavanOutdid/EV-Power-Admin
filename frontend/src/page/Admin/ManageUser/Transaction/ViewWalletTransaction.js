@@ -15,7 +15,7 @@ const ViewWalletTransaction = ({ userInfo, handleLogout, children }) => {
 
     const fetchChargersSession = async () => {
         try {
-        const response = await axios.get(`/ManageUser/ViewWalletTransaction/${username}`);
+        const response = await axios.get(`/Admin/ManageUser/ViewWalletTransaction/${username}`);
         setTransactions(response.data.Transactions);
 
         } catch (error) {

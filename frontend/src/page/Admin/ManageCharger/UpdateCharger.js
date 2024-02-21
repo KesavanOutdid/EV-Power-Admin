@@ -35,7 +35,7 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
     
     const handleEditCharger = async () => {
         try {
-            await axios.put(`/ManageCharger/updateCharger/${editingCharger._id}`, editingCharger);
+            await axios.put(`/Admin/ManageCharger/updateCharger/${editingCharger._id}`, editingCharger);
             Swal.fire({
                 position: "center",
                 icon: "success",

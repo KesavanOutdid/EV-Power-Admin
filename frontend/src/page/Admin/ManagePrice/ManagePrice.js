@@ -10,7 +10,7 @@ const ManagePrice = ({ userInfo, handleLogout, children }) => {
 
     const fetchPrice = async () => {
         try {
-            const response = await axios.get('/ManagePrice');
+            const response = await axios.get('/Admin/ManagePrice');
             console.log(response.data)
             setPricing(response.data.Pricing);
         } catch (error) {

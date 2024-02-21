@@ -16,7 +16,7 @@ const ViewSession = ({ userInfo, handleLogout, children }) => {
     useEffect(() => {
         const fetchChargersSession = async () => {
             try {
-                const response = await axios.get(`/ManageUser/ViewSession/${username}`);
+                const response = await axios.get(`/Admin/ManageUser/ViewSession/${username}`);
                 setChargers(response.data.chargers);
             } catch (error) {
                 console.error('Error fetching chargers:', error);
