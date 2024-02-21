@@ -41,7 +41,7 @@ const ManagePrice = ({ userInfo, handleLogout, children }) => {
                 {/* Main content */}
                 <main
                     role="main"
-                    className="col-md-9 ml-sm-auto mr-auto col-lg-10 px-md-4 bg-light  content-wrapper"
+                    className="col-md-9 ml-sm-auto mr-auto col-lg-9 px-md-4 bg-light  content-wrapper"
                 >
                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap bg-light align-items-center pt-3 pb-2 mb-3 ">
                         <div className="container-fluid  ">

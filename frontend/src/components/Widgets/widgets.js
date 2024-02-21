@@ -66,7 +66,7 @@ return (
                 <div className="card-body">
                     <div className="card-left pt-1 float-left">
                         <h3 className="mb-0 fw-r">
-                            <span className="currency float-left mr-1">Device Count: </span>
+                            <span className="currency float-left mr-1">Device's: </span>
                             <span className="count">{FaultedDeviceCount}</span>
                         </h3>
                         <p className="text-light mt-1 m-0">Faulted Device</p>
