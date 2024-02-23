@@ -27,9 +27,9 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
 
     useEffect(() => {
         // Extract user data from location state
-        const { user } = location.state;
-        if (user) {
-            setEditingCharger(user);
+        const { charger } = location.state;
+        if (charger) {
+            setEditingCharger(charger);
         }
     }, [location]);
     

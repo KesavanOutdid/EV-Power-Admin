@@ -75,7 +75,7 @@ const AdminProfile = ({ children, handleLogout, userInfo }) => {
                                                 </div>
                                                 <section className="CreateUser">
                                                         <form className="contact-form row">
-                                                            <div className="form-field col-lg-12 text-center">
+                                                            <div className="form-field col-lg-11 text-center ml-5" >
                                                                 <label htmlFor="username" className="form-label ">Username</label>
                                                                 <input
                                                                     type="text"

@@ -15,26 +15,26 @@ const Sidebar = () => {
                     </li>
                     <li className={`nav-item ${location.pathname === '/ManageUser' ? 'active' : ''}`}>
                         <Link to="/ManageUser" className="nav-link">
-                        <i class="bi bi-people-fill me-2"></i>
-                        <span className="menu-title">Manage Users</span>
+                        <i class="bi bi-person-gear  me-2"></i>
+                        <span className="menu-title">Manage User's</span>
                         </Link>
                     </li>
                     <li className={`nav-item ${location.pathname === '/UserRole' ? 'active' : ''}`}>
                         <Link to="/UserRole" className="nav-link">
                             <i className="bi bi-people-fill me-2" />
-                            <span className="menu-title"> Manage User Roles</span>
+                            <span className="menu-title"> Manage User Role's</span>
                         </Link>
                     </li>
                     <li className={`nav-item ${location.pathname === '/ChargerList' ? 'active' : ''}`}>
                         <Link to="/ChargerList" className="nav-link">
                         <i className="bi bi-lightning-fill me-2" /> 
-                            <span className="menu-title">Manage Chargers</span>
+                            <span className="menu-title">Manage Charger's</span>
                         </Link>
                     </li>
                     <li className={`nav-item ${location.pathname === '/ManageSessionHistory' ? 'active' : ''}`}>
                         <Link to="/ManageSessionHistory" className="nav-link">
                         <i className="bi bi-clock-fill me-2"></i>
-                        <span className="menu-title">Session history</span>
+                        <span className="menu-title">Session History</span>
                         </Link>
                     </li>
                     <li className={`nav-item ${location.pathname === '/ManagePrice' ? 'active' : ''}`}>
