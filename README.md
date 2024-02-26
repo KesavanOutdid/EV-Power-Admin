@@ -61,7 +61,7 @@ To get started with the EV Charger Application, follow the steps below:
      npm run dev
 ## Usage
 
-  Access the application at http://localhost:4244 (or your specified port).
+  Access the application at https://localhost:4244 (or your specified port).
   Users can log in, search for chargers, manage wallets, and initiate charging sessions.
   Admins can access the admin panel to manage users, chargers, and track revenue.
 
