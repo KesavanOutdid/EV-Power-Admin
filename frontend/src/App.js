@@ -4,7 +4,6 @@
 import React, { useState, useEffect  } from 'react';
 // import axios from 'axios';
 import { BrowserRouter as Router, Route,  Redirect } from 'react-router-dom'; // Import Redirect
-import Home from './page/Home';
 import SignUp from './page/Auth/Register';
 import Login from './page/Auth/Login';
 import Dashboard from './page/Dashboard';
@@ -18,9 +17,11 @@ import CreateUser from './page/Admin/ManageUser/CreateUser'
 import UpdateUser from './page/Admin/ManageUser/UpdateUser'
 import ViewSession from './page/Admin/ManageUser/Session/ViewSession'
 import ViewWalletTransaction from './page/Admin/ManageUser/Transaction/ViewWalletTransaction'
+
 import ChargerList from './page/Admin/ManageCharger/charger_list'
 import CreateCharger from './page/Admin/ManageCharger/CreateCharger'
 import UpdateCharger from './page/Admin/ManageCharger/UpdateCharger'
+import UpdateChargerLocation from './page/Admin/ManageCharger/ChargerLocation/UpdateChargerLocation'
 
 import UserRole from './page/Admin/ManageUserRoles/user_role'
 import CreateUserRoles from './page/Admin/ManageUserRoles/CreateUserRoles'
@@ -346,6 +347,18 @@ const App = () => {
           <Redirect to="/" />
         )}
       </Route>
+      <Route path="/UpdateChargerLocation" >
+        {loggedIn ? (
+          initialLoad ? (
+            <UpdateChargerLocation userInfo={userInfo} handleLogout={handleLogout} setInitialLoad={setInitialLoad} />
+          ) : (
+            <UpdateChargerLocation userInfo={userInfo} handleLogout={handleLogout} />
+          )
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </Route>
+      
         <Route path="/ManageSessionHistory" >
         {loggedIn ? (
           initialLoad ? (

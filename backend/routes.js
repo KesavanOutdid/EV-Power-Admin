@@ -302,7 +302,7 @@ router.get('/Admin/ManageCharger', async (req, res) => {
 router.post('/Admin/ChargerList/chargers', async (req, res) => {
         try {
         const {ChargerID, transactionId, ChargerTagID, charger_model, charger_type, current_phase, gun_connector,
-            max_current, max_power, socket_count, current_or_active_user, ip,} = req.body;
+            max_current, max_power, socket_count, current_or_active_user, ip,long,lat,} = req.body;
         const db = await database.connectToDatabase();
         const ChargerList = db.collection("ev_details")
     
@@ -319,6 +319,8 @@ router.post('/Admin/ChargerList/chargers', async (req, res) => {
             socket_count,
             current_or_active_user: null, // Initialize current_or_active_user to null
             ip: null, // Initialize ip to null
+            long,
+            lat,
         });
     
         res.status(201).json({ message: 'User created successfully' });
@@ -362,8 +364,7 @@ router.put('/Admin/ManageCharger/updateCharger/:id', async (req, res) => {
         const chargerId = req.params.id;
         const {
         ChargerID, transactionId, ChargerTagID, charger_model, charger_type, current_phase, gun_connector,
-        max_current, max_power, socket_count, current_or_active_user, ip,
-        } = req.body;
+        max_current, max_power, socket_count, current_or_active_user, ip,long,lat,} = req.body;
         const db = await database.connectToDatabase();
         const Charger = db.collection("ev_details");
     
@@ -372,7 +373,7 @@ router.put('/Admin/ManageCharger/updateCharger/:id', async (req, res) => {
             {
             $set: {
                 ChargerID, transactionId, ChargerTagID, charger_model, charger_type, current_phase, gun_connector,
-                max_current, max_power, socket_count, current_or_active_user, ip
+                max_current, max_power, socket_count, current_or_active_user, ip, long, lat,
             }
             } // New values for the charger
         );
@@ -392,7 +393,20 @@ router.put('/Admin/ManageCharger/updateCharger/:id', async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
         }
     });
-
+//View ChargerLocation Route
+router.get('/Admin/ManageCharger/ViewChargerLocation/:chargerID', async (req, res) => {
+    try {
+    const chargerID = req.params.chargerID;
+    const db = await database.connectToDatabase();
+    const ChargerList = db.collection('ev_details');
+    const chargers = await ChargerList.find({ ChargerID: chargerID }).toArray();
+    res.status(200).json({ 'chargers':chargers });
+    } catch (error) {
+    console.error(error);
+    logger.error('Error in getting the session history for a charger :%o'+ error);
+    res.status(500).json({ message: "Internal Server Error" });
+    }
+});
 
 // User Roles Routes...
 //Read all UserRoles

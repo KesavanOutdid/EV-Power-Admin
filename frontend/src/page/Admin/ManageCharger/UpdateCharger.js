@@ -21,6 +21,8 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
         socket_count: '',
         current_or_active_user: '',
         ip: '',
+        lat: '',
+        long: '',
     });
     const history = useHistory();
     const location = useLocation();
@@ -169,6 +171,28 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
                                     value={editingCharger.socket_count}
                                     onChange={(e) => setEditingCharger({ ...editingCharger, socket_count: e.target.value })}
                                 />
+                            </div>
+                            <div className="form-field col-lg-6">
+                                <label htmlFor="Latitude" className="form-label">Latitude</label>
+                                <input
+                                    type="text"
+                                    className="input-text js-input"
+                                    required
+                                    id="Latitude"
+                                    value={editingCharger.lat}
+                                    onChange={(e) => setEditingCharger({ ...editingCharger, lat: e.target.value })}
+                                />
+                            </div>
+                            <div className="form-field col-lg-6">
+                                <label htmlFor="Longitude" className="form-label">Longitude</label>                                    
+                                <input
+                                        type="text"
+                                        className="input-text js-input"
+                                        required
+                                        id="Longitude"
+                                        value={editingCharger.long}
+                                        onChange={(e) => setEditingCharger({ ...editingCharger, long: e.target.value })}
+                                    />
                             </div>
                             <div className="form-field col-lg-12 d-flex flex-column align-items-center">
                                 <div id="validationMessage" className="text-danger mb-2"></div>

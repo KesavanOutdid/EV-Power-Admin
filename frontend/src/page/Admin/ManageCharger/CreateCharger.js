@@ -21,6 +21,8 @@ const CreateUser = ({userInfo, handleLogout,children }) => {
         socket_count: '',
         current_or_active_user: '',
         ip: '',
+        lat: '',
+        long: '',
     });
     const history = useHistory();
 
@@ -35,10 +37,12 @@ const CreateUser = ({userInfo, handleLogout,children }) => {
             gun_connector,
             max_current,
             max_power,
-            socket_count
+            socket_count,
+            lat,
+            long,
         } = newCharger;
         
-        if (!ChargerID || !ChargerTagID || !charger_model || !charger_type || !current_phase || !gun_connector || !max_current || !max_power || !socket_count) {
+        if (!ChargerID || !ChargerTagID || !charger_model || !charger_type || !current_phase || !gun_connector || !max_current || !max_power || !socket_count || !lat || !long) {
             document.getElementById('validationMessage').innerText = 'Please fill out all required fields.';
             return false;
         }
@@ -63,6 +67,8 @@ const CreateUser = ({userInfo, handleLogout,children }) => {
                 socket_count: newCharger.socket_count || '',
                 current_or_active_user: newCharger.current_or_active_user || '',
                 ip: newCharger.ip || '',
+                lat: newCharger.lat || '',
+                long: newCharger.long || '',
             };
     
             // Validate the form
@@ -82,6 +88,8 @@ const CreateUser = ({userInfo, handleLogout,children }) => {
                     socket_count: '',
                     current_or_active_user: '',
                     ip: '',
+                    lat:'',
+                    long:'',
                 });
                 Swal.fire({
                     position: "center",
@@ -216,6 +224,28 @@ const CreateUser = ({userInfo, handleLogout,children }) => {
                                     value={newCharger.socket_count}
                                     onChange={(e) => setNewCharger({ ...newCharger, socket_count: e.target.value })}
                                 />
+                            </div>
+                            <div className="form-field col-lg-6">
+                                <label htmlFor="Latitude" className="form-label">Latitude</label>
+                                <input
+                                    type="text"
+                                    className="input-text js-input"
+                                    required
+                                    id="Latitude"
+                                    value={newCharger.lat}
+                                    onChange={(e) => setNewCharger({ ...newCharger, lat: e.target.value })}
+                                />
+                            </div>
+                            <div className="form-field col-lg-6">
+                                <label htmlFor="Longitude" className="form-label">Longitude</label>                                    
+                                <input
+                                        type="text"
+                                        className="input-text js-input"
+                                        required
+                                        id="Longitude"
+                                        value={newCharger.long}
+                                        onChange={(e) => setNewCharger({ ...newCharger, long: e.target.value })}
+                                    />
                             </div>
                             <div className="form-field col-lg-12 d-flex flex-column align-items-center">
                                 <div id="validationMessage" className="text-danger mb-2"></div>

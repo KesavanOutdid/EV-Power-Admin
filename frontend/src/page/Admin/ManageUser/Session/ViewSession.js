@@ -85,7 +85,7 @@ const ViewSession = ({ userInfo, handleLogout, children }) => {
                                                 onChange={handleSearch}
                                             />
                                         </p>
-                                        <div className="table-responsive">
+                                        <div className="table-responsive" style={{ maxHeight: '360px', overflowY: 'scroll' }}>
                                             <table className="table table-striped">
                                                 <thead>
                                                     <tr className="text-center">

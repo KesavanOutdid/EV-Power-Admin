@@ -9,13 +9,13 @@ const Sidebar = () => {
                 <ul className="nav ">
                     <li className={`nav-item ${location.pathname === '/Dashboard' ? 'active' : ''}`}>
                         <Link to="/Dashboard" className="nav-link" data-toggle="collapse" href="#DashboardDrop" aria-expanded="false" aria-controls="DashboardDrop">
-                        <i class="bi bi-collection me-2"></i>
+                        <i className="bi bi-collection me-2"></i>
                         <span className="menu-title">Dashboard</span>
                         </Link>
                     </li>
                     <li className={`nav-item ${location.pathname === '/ManageUser' ? 'active' : ''}`}>
                         <Link to="/ManageUser" className="nav-link">
-                        <i class="bi bi-person-gear  me-2"></i>
+                        <i className="bi bi-person-gear  me-2"></i>
                         <span className="menu-title">Manage User's</span>
                         </Link>
                     </li>

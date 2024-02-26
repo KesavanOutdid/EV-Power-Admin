@@ -89,7 +89,10 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                 .toLowerCase()
                 .includes(searchQuery.toLowerCase())
     );
-
+    const navigateToViewLocation = (charger) => {
+        // Navigate to ViewLocationOfCharger component and pass charger data as props
+        history.push(`/UpdateChargerLocation/${charger.ChargerID}`, { charger });
+    };
     return (
         <div className="container-fluid bg-light">
             <div className="row">
@@ -127,7 +130,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                             onChange={handleSearch}
                                         />
                                         </p>
-                                        <div className="table-responsive">
+                                        <div className="table-responsive" style={{ maxHeight: '375px', overflowY: 'scroll' }}>
                                             <table className="table table-striped">
                                                 <thead>
                                                     <tr className="text-center">
@@ -141,6 +144,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                         <th>Max Current</th>
                                                         <th>Max Power</th>
                                                         <th>Socket Count</th>
+                                                        <th>Location</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
@@ -158,6 +162,17 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                                 <td className="py-1">{charger.max_current}</td>
                                                                 <td className="py-1">{charger.max_power}</td>
                                                                 <td className="py-1">{charger.socket_count}</td>
+                                                                <td className="py-1">
+                                                                        {/* Wallet Transaction Buttons */}
+                                                                        <div className="btn-group" role="group">
+                                                                            <button
+                                                                                className="btn btn-success me-2"
+                                                                                onClick={() => navigateToViewLocation(charger)}
+                                                                            >
+                                                                                View
+                                                                            </button>
+                                                                        </div>
+                                                                    </td>
                                                                 <td className="py-1">
                                                                     {/* Edit and Delete Buttons */}
                                                                     <div className="btn-group" role="group">
@@ -179,7 +194,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                         ))
                                                     ) : (
                                                         <tr className="text-center">
-                                                            <td colSpan="11">No Record Found</td>
+                                                            <td colSpan="13">No Record Found</td>
                                                         </tr>
                                                     )}
                                                 </tbody>

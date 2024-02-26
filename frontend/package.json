@@ -50,7 +50,7 @@
         "webpack": "^5.90.1"
     },
     "scripts": {
-        "start": "set PORT=4244 && react-scripts start",
+        "start": "cross-env PORT=4244 HTTPS=true react-scripts start",
         "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
         "custom-install": "npm install --legacy-peer-deps"
     },

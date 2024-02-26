@@ -80,4 +80,26 @@
   width:200px;
   cursor: pointer;
 }
+/* width and height for the scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track for both vertical and horizontal scrollbar */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(212, 210, 210); 
+  border-radius: 10px;
+}
+
+/* Handle for both vertical and horizontal scrollbar */
+::-webkit-scrollbar-thumb {
+  background: rgba(182, 182, 182, 0.351); 
+  border-radius: 10px;
+}
+
+/* Handle on hover for both vertical and horizontal scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background: #69686890; 
+}
 

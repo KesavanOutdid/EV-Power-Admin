@@ -56,7 +56,7 @@ return (
                         <p className="text-light mt-1 m-0">Current Price</p>
                     </div>
                     <div className="card-right float-right text-right ">
-                    <i class="fa fa-inr fa-4x"></i>
+                    <i className="fa fa-inr fa-4x"></i>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ return (
                         <p className="text-light mt-1 m-0">Faulted Device</p>
                     </div>
                     <div className="card-right float-right text-right ">
-                        <i class="fa-solid fa-circle-exclamation fa-4x"></i>
+                        <i className="fa-solid fa-circle-exclamation fa-4x"></i>
                     </div>
                 </div>
             </div>
