@@ -302,7 +302,7 @@ router.get('/Admin/ManageCharger', async (req, res) => {
 router.post('/Admin/ChargerList/chargers', async (req, res) => {
         try {
         const {ChargerID, transactionId, ChargerTagID, charger_model, charger_type, current_phase, gun_connector,
-            max_current, max_power, socket_count, current_or_active_user, ip,long,lat,} = req.body;
+            max_current, max_power, socket_count, current_or_active_user, ip,long,lat,ShortDescription,infrastructure,AssignedUser} = req.body;
         const db = await database.connectToDatabase();
         const ChargerList = db.collection("ev_details")
     
@@ -321,6 +321,9 @@ router.post('/Admin/ChargerList/chargers', async (req, res) => {
             ip: null, // Initialize ip to null
             long,
             lat,
+            ShortDescription,
+            infrastructure,
+            AssignedUser,
         });
     
         res.status(201).json({ message: 'User created successfully' });
@@ -364,7 +367,7 @@ router.put('/Admin/ManageCharger/updateCharger/:id', async (req, res) => {
         const chargerId = req.params.id;
         const {
         ChargerID, transactionId, ChargerTagID, charger_model, charger_type, current_phase, gun_connector,
-        max_current, max_power, socket_count, current_or_active_user, ip,long,lat,} = req.body;
+        max_current, max_power, socket_count, current_or_active_user, ip,long,lat,ShortDescription,infrastructure,AssignedUser} = req.body;
         const db = await database.connectToDatabase();
         const Charger = db.collection("ev_details");
     
@@ -373,7 +376,7 @@ router.put('/Admin/ManageCharger/updateCharger/:id', async (req, res) => {
             {
             $set: {
                 ChargerID, transactionId, ChargerTagID, charger_model, charger_type, current_phase, gun_connector,
-                max_current, max_power, socket_count, current_or_active_user, ip, long, lat,
+                max_current, max_power, socket_count, current_or_active_user, ip, long, lat,ShortDescription,infrastructure,AssignedUser
             }
             } // New values for the charger
         );

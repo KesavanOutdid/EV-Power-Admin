@@ -136,6 +136,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                     <tr className="text-center">
                                                         <th>Sl.No</th>
                                                         <th>Device ID</th>
+                                                        <th>Infrastructure</th>
                                                         <th>Tag ID</th>
                                                         <th>Model</th>
                                                         <th>Type</th>
@@ -144,6 +145,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                         <th>Max Current</th>
                                                         <th>Max Power</th>
                                                         <th>Socket Count</th>
+                                                        <th>Short Desc</th>
                                                         <th>Location</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -154,6 +156,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                             <tr key={charger._id} className="text-center">
                                                                 <td className="py-1">{index + 1}</td>
                                                                 <td className="py-1">{charger.ChargerID}</td>
+                                                                <td className="py-1">{charger.infrastructure === 1 ? "Private" : "Public"}</td>
                                                                 <td className="py-1">{charger.ChargerTagID}</td>
                                                                 <td className="py-1">{charger.charger_model}</td>
                                                                 <td className="py-1">{charger.charger_type}</td>
@@ -162,6 +165,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                                 <td className="py-1">{charger.max_current}</td>
                                                                 <td className="py-1">{charger.max_power}</td>
                                                                 <td className="py-1">{charger.socket_count}</td>
+                                                                <td className="py-1">{charger.ShortDescription}</td>
                                                                 <td className="py-1">
                                                                         {/* Wallet Transaction Buttons */}
                                                                         <div className="btn-group" role="group">
@@ -194,7 +198,7 @@ const ChargerList = ({ userInfo, handleLogout, children }) => {
                                                         ))
                                                     ) : (
                                                         <tr className="text-center">
-                                                            <td colSpan="13">No Record Found</td>
+                                                            <td colSpan="14">No Record Found</td>
                                                         </tr>
                                                     )}
                                                 </tbody>

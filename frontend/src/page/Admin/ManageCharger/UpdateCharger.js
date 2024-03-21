@@ -23,7 +23,32 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
         ip: '',
         lat: '',
         long: '',
+        ShortDescription: '',
+        infrastructure:'',
+        AssignedUser: null, // Initialize AssignedUser as null
     });
+    const [users, setUsers] = useState([]);
+    
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get('/Admin/ManageUser');
+            console.log(response.data)
+            setUsers(response.data.users);
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
+    };
+
+    useEffect(() => {
+        // Fetch the list of users from your backend
+        fetchUsers();
+    }, []);
+    // When infrastructure changes, update AssignedUser accordingly
+    useEffect(() => {
+        if (editingCharger.infrastructure === 0) {
+            setEditingCharger(prevState => ({ ...prevState, AssignedUser: null }));
+        }
+    }, [editingCharger.infrastructure]);
     const history = useHistory();
     const location = useLocation();
 
@@ -35,7 +60,8 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
         }
     }, [location]);
     
-    const handleEditCharger = async () => {
+    const handleEditCharger = async (e) => {
+        e.preventDefault();
         try {
             await axios.put(`/Admin/ManageCharger/updateCharger/${editingCharger._id}`, editingCharger);
             Swal.fire({
@@ -71,8 +97,8 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
                         <button className="btn shadow btn-info text-white mt-4"  onClick={() => history.goBack()} >Go Back</button>
                     </div>
                     <section className="CreateUser">
-                        <form className="contact-form row">
-                            <div className="form-field col-lg-12">
+                        <form className="contact-form row" onSubmit={handleEditCharger}>
+                            <div className="form-field col-lg-6">
                                 <label htmlFor="ChargerID" className="form-label">Device ID</label>
                                 <input
                                     type="text"
@@ -194,9 +220,59 @@ const UpdateCharger = ({userInfo, handleLogout,children }) => {
                                         onChange={(e) => setEditingCharger({ ...editingCharger, long: e.target.value })}
                                     />
                             </div>
+                            <div className="form-field col-lg-6">
+                                <label htmlFor="ShortDescription" className="form-label">Location Short Description</label>
+                                <input
+                                    type="text"
+                                    className="input-text js-input"
+                                    maxLength={7}
+                                    id="ShortDescription"
+                                    required
+                                    value={editingCharger.ShortDescription}
+                                    onChange={(e) => setEditingCharger({ ...editingCharger, ShortDescription: e.target.value })}
+                                />
+                            </div>
+                            <div className="form-field col-lg-6  ">
+                            <label htmlFor="infrastructure" className="form-label">infrastructure</label>
+                            <select
+                                className="input-text js-input bg-light btn-outline-none mr-0 w-100"
+                                id="infrastructure"
+                                value={editingCharger.infrastructure}
+                                onChange={(e) => setEditingCharger({ ...editingCharger, infrastructure: parseInt(e.target.value) })}
+                                style={{ width: '50%' }}
+                            >
+                                <option value="" disabled>Select infrastructure</option>
+                                <option  value={0}>Public</option>
+                                <option   value={1}>Private</option>
+                            </select>
+                            </div>
+                            {editingCharger.infrastructure === 1 && (
+                                <div className="form-field col-lg-6">
+                                    <label htmlFor="AssignedUser" className="form-label">Assign to User</label>
+                                    <select
+                                        className="input-text js-input bg-light btn-outline-none mr-0 w-100"
+                                        id="AssignedUser"
+                                        value={editingCharger.AssignedUser}
+                                        required={editingCharger.infrastructure === 1} // Add required attribute conditionally
+                                        onChange={(e) => setEditingCharger({ ...editingCharger, AssignedUser: e.target.value })}
+                                    >
+                                    {editingCharger.AssignedUser === null && (
+                                        <option value="" disabled selected>Select User</option>
+                                    )} 
+                                    {users.length > 0 ? (
+                                            users.map((user) => (
+                                                <option key={user._id} value={user.username}>{user.username}</option>
+                                            ))
+                                        ) : (
+                                            <option disabled>No users found</option>
+                                        )}
+                                    </select>
+                                </div>
+                            )}
+
                             <div className="form-field col-lg-12 d-flex flex-column align-items-center">
                                 <div id="validationMessage" className="text-danger mb-2"></div>
-                                <button type="button" className="btn btn-primary shadow" onClick={handleEditCharger}>Update Device</button>
+                                <button type="submit" className="btn btn-primary shadow">Update Device</button>
                             </div>
                         </form>
                     </section>
